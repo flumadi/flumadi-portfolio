@@ -7,7 +7,7 @@ try {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         throw new Exception("Invalid request method");
     }
-
+    
     $data = json_decode(file_get_contents("php://input"), true);
     
     if (empty($data['email'])) {

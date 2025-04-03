@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            handleFormSubmit(e.target, 'contact-form.php');
+            handleFormSubmit(e.target, 'php/contact-form.php');
         });
     }
     
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            handleFormSubmit(e.target, 'newsletter.php');
+            handleFormSubmit(e.target, 'php/newsletter.php');
         });
     }
 });

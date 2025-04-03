@@ -13,7 +13,6 @@ try {
     if (empty($data['name']) || empty($data['email']) || empty($data['subject']) || empty($data['message'])) {
         throw new Exception("All fields are required");
     }
-
     $stmt = $conn->prepare("INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $data['name'], $data['email'], $data['subject'], $data['message']);
     
