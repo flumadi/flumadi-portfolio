@@ -220,10 +220,15 @@
             <div class="footer-newsletter">
                 <h3>Stay Updated</h3>
                 <p>Subscribe to my newsletter for tech insights and project updates</p>
-                <form>
-                    <input type="email" placeholder="Your Email">
+                <form id="newsletterForm" class="newsletter-form">
+                    <input type="email" name="email" id="newsletterEmail" placeholder="Your Email" required>
                     <button type="submit">Subscribe</button>
                 </form>
+                <!-- Add a success message container -->
+                <div id="newsletterSuccess" class="form-success" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you for subscribing!</p>
+                </div>
             </div>
         </div>
         <div class="copyright">
