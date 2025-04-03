@@ -1,5 +1,5 @@
 # flumadi-portfolio
-My Professional Portfolio - Fridah Lumadi
+My Professional Portfolio - 
 🌟 Welcome to My Digital Showcase
 Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently pursuing my degree at South Eastern Kenya University. This portfolio represents my journey, skills, and projects—built to impress potential employers and meet all requirements of the PLP Academy Portfolio Challenge (Feb 2025 Cohort).
 
