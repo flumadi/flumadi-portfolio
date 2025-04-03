@@ -81,7 +81,7 @@ CREATE DATABASE portfolio_db;
 USE portfolio_db;
 
 -- For contact form submissions
-CREATE TABLE contacts (
+CREATE TABLE contact (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
