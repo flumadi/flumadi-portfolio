@@ -1,47 +1,47 @@
-// Mobile Navigation Toggle (for smaller screens)
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+// Mobile Navigation
+function initMobileMenu() {
     const menuToggle = document.createElement('div');
     menuToggle.className = 'mobile-menu-toggle';
     menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
     document.querySelector('header .container').prepend(menuToggle);
     
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', () => {
         document.querySelector('nav').classList.toggle('active');
     });
+}
+
+// Form Handling
+async function handleFormSubmit(form, endpoint, successMessage) {
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        const data = await response.json();
+        showNotification(data.success ? 'success' : 'error', data.message);
+        if (data.success) form.reset();
+    } catch (error) {
+        showNotification('error', 'Network error. Please try again.');
+    }
+}
+
+// Initialize all functionality
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    // Form submissions
+    document.querySelectorAll('.contact-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            handleFormSubmit(e.target, 'contact-form.php', 'Message sent successfully!');
         });
     });
     
-    // Contact form submission
-    const contactForms = document.querySelectorAll('.contact-form');
-    if (contactForms) {
-        contactForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
-                this.reset();
-            });
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleFormSubmit(e.target, 'newsletter.php', 'Subscribed successfully!');
         });
-    }
-    
-    // Newsletter subscription
-    const newsletterForms = document.querySelectorAll('.footer-newsletter form');
-    if (newsletterForms) {
-        newsletterForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                alert(`Thank you for subscribing with ${email}! You'll receive updates soon.`);
-                this.reset();
-            });
-        });
-    }
+    });
 });

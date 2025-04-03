@@ -17,50 +17,94 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="active"><a href="aboutme.html">About Me</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="interests.html">Interests</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Get to Know Me</h2>
+                <p>I'm an IT scholar passionate about creating digital solutions that make an impact.<br>
+                    And This Is My Journey.<br>
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section class="about-me">
         <div class="container">
-            <h2>My Story</h2>
+            <h2 class="section-title">My Journey</h2>
             <div class="about-grid">
                 <div class="education">
-                    <h3>Education</h3>
+                    <div class="section-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                    </div>
                     <div class="timeline">
                         <div class="timeline-item">
-                            <h4>Tom and Jerry Kindergarten</h4>
-                            <p>Early Childhood Education</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Tom and Jerry Kindergarten</h4>
+                                <p class="timeline-date">2007 - 2009</p>
+                                <p>Early Childhood Education</p>
+                            </div>
                         </div>
                         <div class="timeline-item">
-                            <h4>Olonana Memorial Academy</h4>
-                            <p>Primary Education</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Olonana Memorial Academy</h4>
+                                <p class="timeline-date">2009 - 2018</p>
+                                <p>Primary Education</p>
+                            </div>
                         </div>
                         <div class="timeline-item">
-                            <h4>St. Joseph's Girls' High School - KITale</h4>
-                            <p>Secondary Education</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>St. Joseph's Girls' High School - Kitale</h4>
+                                <p class="timeline-date">2019 - 2020</p>
+                                <p>Secondary Education</p>
+                            </div>
                         </div>
                         <div class="timeline-item current">
-                            <h4>South Eastern Kenya University</h4>
-                            <p>Bachelor of Science in Information Technology (2022-2026)</p>
-                            <p>Currently in 2nd Semester of 2nd Year</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>South Eastern Kenya University</h4>
+                                <p class="timeline-date">2023 - Present</p>
+                                <p>Bachelor of Science in Information Technology</p>
+                                <p>Currently in 2nd Semester of 2nd Year</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="experience">
-                    <h3>Work Experience</h3>
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Work Experience</h3>
+                    </div>
                     <div class="experience-item">
-                        <h4>Robisearch Limited</h4>
-                        <p class="date">June 2024 - August 2024</p>
-                        <p>IT Intern</p>
-                        <ul>
+                        <div class="exp-header">
+                            <h4>Robisearch Limited</h4>
+                            <p class="date">June 2024 - August 2024</p>
+                        </div>
+                        <p class="position">IT Intern</p>
+                        <ul class="exp-details">
                             <li>Assisted in software development projects</li>
                             <li>Participated in database management</li>
                             <li>Contributed to UI/UX design improvements</li>
                         </ul>
-                        <p>Planning to continue internship during long holidays</p>
+                        <p class="exp-note">Planning to continue internship during long holidays</p>
                     </div>
                 </div>
             </div>
@@ -69,81 +113,63 @@
 
     <section class="skills-showcase">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
                     <ul>
-                        <li>HTML/CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>PHP</li>
-                        <li>Dart (Flutter)</li>
-                        <li>C</li>
-                        <li>R</li>
-                        <li>SQL</li>
+                        <li><span class="skill-name">HTML/CSS</span> <span class="skill-level">Advanced</span></li>
+                        <li><span class="skill-name">JavaScript</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">Python</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">Java</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">PHP</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">Dart (Flutter)</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">C</span> <span class="skill-level">Basic</span></li>
+                        <li><span class="skill-name">R</span> <span class="skill-level">Basic</span></li>
+                        <li><span class="skill-name">SQL</span> <span class="skill-level">Intermediate</span></li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Frameworks & Tools</h3>
+                    </div>
                     <ul>
-                        <li>Flutter</li>
-                        <li>React</li>
-                        <li>Node.js</li>
-                        <li>Bootstrap</li>
-                        <li>Git/GitHub</li>
-                        <li>Figma</li>
-                        <li>Adobe XD</li>
+                        <li><span class="skill-name">Flutter</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">React</span> <span class="skill-level">Basic</span></li>
+                        <li><span class="skill-name">Node.js</span> <span class="skill-level">Basic</span></li>
+                        <li><span class="skill-name">Bootstrap</span> <span class="skill-level">Advanced</span></li>
+                        <li><span class="skill-name">Git/GitHub</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">Figma</span> <span class="skill-level">Intermediate</span></li>
+                        <li><span class="skill-name">Adobe XD</span> <span class="skill-level">Basic</span></li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Other Competencies</h3>
+                    <div class="skill-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Other Competencies</h3>
+                    </div>
                     <ul>
-                        <li>Mobile App Development</li>
-                        <li>Web Development</li>
-                        <li>UI/UX Design</li>
-                        <li>Database Design</li>
-                        <li>Data Analysis</li>
-                        <li>Agile Methodologies</li>
+                        <li><span class="skill-name">Mobile App Development</span></li>
+                        <li><span class="skill-name">Web Development</span></li>
+                        <li><span class="skill-name">UI/UX Design</span></li>
+                        <li><span class="skill-name">Database Design</span></li>
+                        <li><span class="skill-name">Data Analysis</span></li>
+                        <li><span class="skill-name">Agile Methodologies</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    
 
-    <section class="contact-form-section">
+    <section class="call-to-action">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-form-container">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Phone Number">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Direct Contacts</h3>
-                    <p><i class="fas fa-envelope"></i> mathiasfridah2@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +254 7XX XXX XXX</p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/fridahlumadi" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/fridahlumadi" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://instagram.com/fridahlumadi" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <a href="#" class="btn cv-btn">Download My CV</a>
-                </div>
-            </div>
+            <h3>Want to work together or have questions?</h3>
+            <a href="contact.html" class="btn">Contact Me</a>
         </div>
     </section>
 
@@ -154,17 +180,17 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="aboutme.html">About Me</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#">Download CV</a></li>
+                    <li><a href="interests.html">Interests</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
                 <h3>Connect With Me</h3>
                 <ul>
-                    <li><a href="https://linkedin.com/in/fridahlumadi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                    <li><a href="https://github.com/fridahlumadi" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    <li><a href="https://instagram.com/fridahlumadi" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/fridah-lumadi-356257330" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="https://github.com/flumadi" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="https://wa.me/0724442672" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="https://www.instagram.com/flumadi" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                     <li><a href="mailto:mathiasfridah2@gmail.com"><i class="fas fa-envelope"></i> mathiasfridah2@gmail.com</a></li>
                 </ul>
             </div>

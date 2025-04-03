@@ -2,40 +2,27 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "portfolio_db";
+// Database configuration
+require_once 'db-config.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die(json_encode(["success" => false, "message" => "Connection failed: " . $conn->connect_error]));
-}
-
-$data = json_decode(file_get_contents("php://input"), true);
-$email = $data['email'];
-
-// Check if email exists
-$check = $conn->prepare("SELECT id FROM newsletter WHERE email = ?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
-
-if ($check->num_rows > 0) {
-    echo json_encode(["success" => false, "message" => "This email is already subscribed!"]);
-} else {
-    $stmt = $conn->prepare("INSERT INTO newsletter (email) VALUES (?)");
-    $stmt->bind_param("s", $email);
+try {
+    $data = json_decode(file_get_contents("php://input"), true);
+    $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
     
-    if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Thank you for subscribing!"]);
+    // Check existing
+    $check = $conn->prepare("SELECT id FROM newsletter WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    
+    if ($check->get_result()->num_rows > 0) {
+        echo json_encode(["success" => false, "message" => "Already subscribed!"]);
     } else {
-        echo json_encode(["success" => false, "message" => "Subscription failed: " . $stmt->error]);
+        $stmt = $conn->prepare("INSERT INTO newsletter (email) VALUES (?)");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        echo json_encode(["success" => true, "message" => "Subscription successful!"]);
     }
-    $stmt->close();
+} catch (Exception $e) {
+    echo json_encode(["success" => false, "message" => "Error: " . $e->getMessage()]);
 }
-
-$check->close();
-$conn->close();
 ?>

@@ -99,6 +99,126 @@
     left: 0;
     color: var(--pink);
 }
+/* Page Previews Section */
+.page-previews {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.page-previews h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 50px;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.preview-card {
+    display: block;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+/* Feminine Tech Preview Cards */
+.preview-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(158, 102, 173, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(155, 89, 182, 0.1);
+}
+
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(158, 102, 173, 0.2);
+    border-color: rgba(233, 30, 99, 0.3);
+}
+
+.preview-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.preview-card:hover .preview-image {
+    transform: scale(1.03);
+}
+
+.preview-content {
+    padding: 20px;
+    background: white;
+}
+
+.preview-content h3 {
+    color: var(--purple);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.preview-content p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.preview-link {
+    color: var(--pink);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.preview-card:hover .preview-link {
+    color: var(--dark-blue);
+    transform: translateX(5px);
+}
+.preview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.preview-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.preview-card h3 {
+    padding: 20px 20px 10px;
+    color: var(--primary-blue);
+    font-size: 22px;
+}
+
+.preview-card p {
+    padding: 0 20px 20px;
+    color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-previews h2 {
+        font-size: 30px;
+    }
+    
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* Featured Projects */
 .featured-projects {

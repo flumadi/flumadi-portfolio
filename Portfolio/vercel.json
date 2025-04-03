@@ -1,15 +1,27 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "builds": [
       {
-        "src": "package.json",
-        "use": "@vercel/static-build"
-      }
-    ],
-    "routes": [
+          "src": "*.php",
+          "use": "@vercel/php"
+      },
       {
-        "src": "/(.*)",
-        "dest": "/"
+          "src": "*.html",
+          "use": "@vercel/static-build"
       }
-    ]
-  }
+  ],
+  "routes": [
+      {
+          "src": "/contact-form",
+          "dest": "/contact-form.php"
+      },
+      {
+          "src": "/newsletter",
+          "dest": "/newsletter.php"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "/index.html"
+      }
+  ]
+}
