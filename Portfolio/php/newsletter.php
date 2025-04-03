@@ -1,7 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
-
 require_once 'db-config.php';
 
 try {
@@ -21,14 +20,13 @@ try {
         throw new Exception("Invalid email format");
     }
 
-    // Check existing
     $check = $conn->prepare("SELECT id FROM newsletter WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
     
     if ($check->get_result()->num_rows > 0) {
         echo json_encode([
-            "success" => false, 
+            "success" => false,
             "message" => "This email is already subscribed!"
         ]);
     } else {
@@ -36,8 +34,8 @@ try {
         $stmt->bind_param("s", $email);
         if ($stmt->execute()) {
             echo json_encode([
-                "success" => true, 
-                "message" => "Thank you for subscribing!"
+                "success" => true,
+                "message" => "Thanks for subscribing!"
             ]);
         } else {
             throw new Exception("Database error: " . $stmt->error);
@@ -46,7 +44,7 @@ try {
 } catch (Exception $e) {
     http_response_code(400);
     echo json_encode([
-        "success" => false, 
+        "success" => false,
         "message" => "Error: " . $e->getMessage()
     ]);
 }
