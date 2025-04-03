@@ -129,8 +129,4 @@ MIT © Fridah Lumadi – Free to use as a template, but please credit me!
 🚀 Next Steps
 Deploy to Vercel (or your preferred host)
 
-Submit to PLP via their form before April 4, 2025
-
-Share with peers for final feedback
-
 Thank you for reviewing my work! Let me know if you'd like any refinements. 😊
