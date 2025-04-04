@@ -1,4 +1,9 @@
+# Enable SPA (Single Page App) routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Form settings
+[build.environment]
+  NODE_VERSION = "18"
