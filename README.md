@@ -22,12 +22,11 @@ CSS3 (Flexbox, Grid, Animations)
 JavaScript (Form validation, interactive elements)
 
 Backend (Optional but implemented)
-PHP (Contact form handler)
 
 MySQL (Database for messages and newsletter signups)
 
 Deployment
-Vercel (Primary hosting)
+Netlify (Primary hosting)
 
 GitHub Pages (Backup static version)
 
@@ -65,7 +64,7 @@ bash
 Copy
 git clone https://github.com/fridahlumadi/flumadi_portfolio.git
 cd flumadi_portfolio
-2. Run with XAMPP (For PHP/MySQL)
+2. Run with XAMPP (MySQL)
 Place the folder in htdocs
 
 Start Apache & MySQL in XAMPP
@@ -110,15 +109,15 @@ Award Ceremony: April 11, 2025
 
 ✅ How I Meet PLP's Evaluation Criteria
 Category	My Score	Why?
-Creativity (20%)	20/20	Unique animations, gradient text, floating profile image
-Code Quality (20%)	20/20	Clean, commented, W3C validated
-Documentation (15%)	15/15	Detailed README, code comments
-Deployment (15%)	15/15	Works on Vercel + GitHub Pages
-Tech Stack (15%)	15/15	HTML/CSS/JS + PHP/MySQL
+Creativity (20%)Unique animations, gradient text, floating profile image
+Code Quality (20%)Clean, commented, W3C validated
+Documentation (15%)Detailed README, code comments
+Deployment (15%)Works on Netlify + GitHub Pages
+Tech Stack (15%)HTML/CSS/JS + MySQL
 Peer Review (15%)	15/15	Incorporated feedback from my group
 💡 What Makes My Portfolio Unique?
 🔹 Balances professionalism & creativity – Not just another template!
-🔹 Proves my PHP/MySQL skills – Beyond basic frontend
+🔹 Proves my MySQL skills – Beyond basic frontend
 🔹 Mobile-first approach – Critical for modern web dev
 🔹 Easy to update – Modular code for future projects
 
@@ -126,6 +125,6 @@ Peer Review (15%)	15/15	Incorporated feedback from my group
 MIT © Fridah Lumadi – Free to use as a template, but please credit me!
 
 🚀 Next Steps
-Deploy to Vercel (or your preferred host)
+Deploy to Netlify (or your preferred host)
 
 Thank you for reviewing my work! Let me know if you'd like any refinements. 😊
