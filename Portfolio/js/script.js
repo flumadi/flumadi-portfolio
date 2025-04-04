@@ -10,7 +10,7 @@ function initMobileMenu() {
     });
 }
 
-// Notification function
+// Notification function (for floating alerts)
 function showNotification(type, message) {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -23,48 +23,70 @@ function showNotification(type, message) {
     }, 3000);
 }
 
-// Form Handling
-async function handleFormSubmit(form, endpoint) {
+// Form Response Handler (for inline messages)
+function showFormResponse(form, type, message) {
+    const responseEl = form.querySelector('.form-response-message');
+    if (responseEl) {
+        responseEl.textContent = message;
+        responseEl.className = `form-response-message ${type}`;
+        setTimeout(() => responseEl.classList.add('fade-out'), 3000);
+    }
+}
+
+// Form Submission Handler (Netlify Optimized)
+async function handleNetlifyForm(form) {
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    const successElement = form.nextElementSibling?.classList?.contains('form-success') 
-        ? form.nextElementSibling : null;
+    const originalContent = submitBtn.innerHTML;
+    const formName = form.getAttribute('name') || 'form';
 
     try {
+        // Show loading state
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        
-        const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => data[key] = value);
+        submitBtn.innerHTML = `
+            <span class="btn-text">${submitBtn.textContent.trim()}</span>
+            <i class="fas fa-spinner fa-spin"></i>
+        `;
+        // Button loading state
+submitBtn.innerHTML = `
+<span class="btn-text">${submitBtn.textContent.trim()}</span>
+<i class="fas fa-spinner fa-spin"></i>
+`;
 
-        const response = await fetch(endpoint, {
+
+        // Convert to FormData for Netlify
+        const formData = new FormData(form);
+        const urlEncoded = new URLSearchParams(formData).toString();
+
+        // Submit to Netlify
+        const response = await fetch('/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: urlEncoded
         });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showNotification('success', result.message);
-            if (successElement) {
-                successElement.style.display = 'flex';
-                form.style.display = 'none';
-            } else {
-                form.reset();
-            }
+
+        if (response.ok) {
+            // Success handling
+            const successMsg = form.dataset.successMessage || 'Thank you! Your submission was received.';
+            showFormResponse(form, 'success', successMsg);
+            showNotification('success', successMsg);
+            form.reset();
+            
+            // Hide form if success element exists
+            const successElement = form.nextElementSibling?.classList?.contains('form-success');
+            if (successElement) form.style.display = 'none';
         } else {
-            showNotification('error', result.message);
+            throw new Error('Form submission failed');
         }
     } catch (error) {
-        showNotification('error', 'Network error. Please try again.');
-        console.error('Error:', error);
+        // Error handling
+        const errorMsg = 'Submission failed. Please try again.';
+        showFormResponse(form, 'error', errorMsg);
+        showNotification('error', errorMsg);
+        console.error(`${formName} error:`, error);
     } finally {
+        // Reset button state
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML = originalContent;
     }
 }
 
@@ -72,21 +94,21 @@ async function handleFormSubmit(form, endpoint) {
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     
-    // Contact form
+    // Netlify Form Handling
+    const netlifyForms = document.querySelectorAll('form[netlify]');
+    netlifyForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleNetlifyForm(form);
+        });
+    });
+
+    // Legacy fallback for non-Netlify forms
     const contactForm = document.getElementById('contactForm') || document.querySelector('.contact-form');
-    if (contactForm) {
+    if (contactForm && !contactForm.hasAttribute('netlify')) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            handleFormSubmit(e.target, 'php/contact-form.php');
-        });
-    }
-    
-    // Newsletter form
-    const newsletterForm = document.getElementById('newsletterForm') || document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            handleFormSubmit(e.target, 'php/newsletter.php');
+            showNotification('error', 'Form configuration error: Netlify attributes missing');
         });
     }
 });

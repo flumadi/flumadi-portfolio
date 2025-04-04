@@ -81,31 +81,38 @@
                 </div>
                 <div class="contact-form">
                     <h2>Send Me a Message</h2>
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                        <!-- Add this div INSIDE the form -->
-                        <div class="form-response-message"></div>
-                        </form>
-                    <div class="form-success" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Thank you! Your message has been sent successfully.</p>
-                    </div>
+                    <form 
+  name="contact" 
+  method="POST" 
+  netlify 
+  netlify-honeypot="bot-field" 
+  id="contactForm"
+  class="contact-form"
+>
+  <input type="hidden" name="form-name" value="contact">
+  <p class="hidden">
+    <label>Don't fill this out: <input name="bot-field"></label>
+  </p>
+  
+  <div class="form-group">
+    <label for="name">Your Name *</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Your Email *</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="subject">Subject *</label>
+    <input type="text" id="subject" name="subject" required>
+  </div>
+  <div class="form-group">
+    <label for="message">Your Message *</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn">Send Message</button>
+  <div class="form-response-message"></div>
+</form>
                 </div>
                 </div>
             </div>
@@ -136,15 +143,37 @@
             <div class="footer-newsletter">
                 <h3>Stay Updated</h3>
                 <p>Subscribe to my newsletter for tech insights and project updates</p>
-                <form id="newsletterForm" class="newsletter-form">
-                    <input type="email" id="newsletterEmail" name="email" placeholder="Your Email" required>
-                    <button type="submit">Subscribe</button>
-                     <!-- Message container -->
-                 <div class="form-response-message"></div>
-                </form>
-                <div class="form-success" style="display: none;">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Thank you for subscribing!</p>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to my newsletter for tech insights and project updates</p>
+                    
+                    <form 
+                      name="newsletter" 
+                      method="POST" 
+                      netlify
+                      netlify-honeypot="bot-field"
+                      id="newsletterForm" 
+                      class="newsletter-form"
+                    >
+                      <input type="hidden" name="form-name" value="newsletter">
+                      <p class="hidden">
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                      </p>
+                      
+                      <input 
+                        type="email" 
+                        id="newsletterEmail" 
+                        name="email" 
+                        placeholder="Your Email" 
+                        required
+                        aria-label="Your email address"
+                      >
+                      <button type="submit" class="btn">
+                        <span class="btn-text">Subscribe</span>
+                        <i class="fas fa-spinner loading-spinner"></i>
+                      </button>
+                      <div class="form-response-message"></div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -955,10 +955,65 @@ nav ul li.active a {
     gap: 10px;
 }
 
-.form-success i {
-    font-size: 24px;
-    color: var(--light-blue);
+/* Button loading states */
+.btn .fa-spinner {
+    display: none;
+    margin-left: 8px;
 }
+
+.btn.is-loading .fa-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Form response messages */
+.form-response-message {
+    display: none;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.form-response-message.success {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+}
+
+.form-response-message.error {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+  /* Response message */
+  .form-response-message {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+  }
+  
+  .form-response-message.success {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .form-response-message.error {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+  }
 
 .btn[disabled] {
     opacity: 0.7;
