@@ -3,14 +3,19 @@ My Professional Portfolio -
 🌟 Welcome to My Digital Showcase
 Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently pursuing my degree at South Eastern Kenya University. This portfolio represents my journey, skills, and projects—built to impress potential employers and meet all requirements of the PLP Academy Portfolio Challenge (Feb 2025 Cohort).
 
-🔗 Live Demo: https://fridah-lumadi.vercel.app (Replace with your link after deployment)
+🔗 Live Demo: https://enchanting-pika-7fcf3c.netlify.app (Replace with your link after deployment)
 
 ✨ Why This Portfolio?
 I designed this portfolio to:
+
 ✅ Showcase my technical skills in Mobile/Web Development & UI/UX
+
 ✅ Highlight my education (from primary school to university)
+
 ✅ Display real projects with GitHub links and live demos
+
 ✅ Make networking easy with a functional MySQL contact form
+
 ✅ Stand out visually with a blue/purple/pink theme (professional yet creative)
 
 🛠️ Technologies I Used
@@ -62,7 +67,7 @@ Employers can download my resume with one click
 1. Clone My Repository
 bash
 Copy
-git clone https://github.com/fridahlumadi/flumadi_portfolio.git
+git clone https://github.com/flumadi/flumadi_portfolio.git
 cd flumadi_portfolio
 2. Run with XAMPP (MySQL)
 Place the folder in htdocs
@@ -80,26 +85,22 @@ CREATE DATABASE portfolio_db;
 USE portfolio_db;
 
 -- For contact form submissions
-CREATE TABLE contacts (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  message TEXT NOT NULL,
-  submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE contacts (<br>
+  id INT AUTO_INCREMENT PRIMARY KEY,<br>
+  name VARCHAR(100) NOT NULL,<br>
+  email VARCHAR(100) NOT NULL,<br>
+  message TEXT NOT NULL,<br>
+  submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
 );
 
--- For newsletter signups
-CREATE TABLE newsletter (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  email VARCHAR(100) NOT NULL UNIQUE,
-  subscription_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- For newsletter signups<br>
+CREATE TABLE newsletter (<br>
+  id INT AUTO_INCREMENT PRIMARY KEY,<br>
+  email VARCHAR(100) NOT NULL UNIQUE,<br>
+  subscription_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
 );
-📸 Screenshots of My Work
-Homepage	About Me	Projects
-Home	About	Projects
-(Replace with actual screenshots of your deployed project)
 
-📝 Submission Readiness
+📝 Submission Readiness<br>
 📅 PLP Challenge Timeline
 Start Date: March 31, 2025
 
@@ -108,17 +109,18 @@ End Date: April 4, 2025
 Award Ceremony: April 11, 2025
 
 ✅ How I Meet PLP's Evaluation Criteria
-Category	My Score	Why?
-Creativity (20%)Unique animations, gradient text, floating profile image
-Code Quality (20%)Clean, commented, W3C validated
-Documentation (15%)Detailed README, code comments
-Deployment (15%)Works on Netlify + GitHub Pages
-Tech Stack (15%)HTML/CSS/JS + MySQL
+
+Creativity (20%)Unique animations, gradient text, floating profile image<br>
+Code Quality (20%)Clean, commented, W3C validated<br>
+Documentation (15%)Detailed README, code comments<br>
+Deployment (15%)Works on Netlify + GitHub Pages<br>
+Tech Stack (15%)HTML/CSS/JS + MySQL<br>
 Peer Review (15%)	15/15	Incorporated feedback from my group
-💡 What Makes My Portfolio Unique?
-🔹 Balances professionalism & creativity – Not just another template!
-🔹 Proves my MySQL skills – Beyond basic frontend
-🔹 Mobile-first approach – Critical for modern web dev
+
+💡 What Makes My Portfolio Unique?<br>
+🔹 Balances professionalism & creativity – Not just another template!<br>
+🔹 Proves my MySQL skills – Beyond basic frontend<br>
+🔹 Mobile-first approach – Critical for modern web dev<br>
 🔹 Easy to update – Modular code for future projects
 
 📜 License
