@@ -10,7 +10,7 @@ I designed this portfolio to:
 ✅ Showcase my technical skills in Mobile/Web Development & UI/UX
 ✅ Highlight my education (from primary school to university)
 ✅ Display real projects with GitHub links and live demos
-✅ Make networking easy with a functional PHP/MySQL contact form
+✅ Make networking easy with a functional MySQL contact form
 ✅ Stand out visually with a blue/purple/pink theme (professional yet creative)
 
 🛠️ Technologies I Used
