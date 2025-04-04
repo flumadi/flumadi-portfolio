@@ -109,7 +109,7 @@ End Date: April 4, 2025
 Award Ceremony: April 11, 2025
 
 ✅ How I Meet PLP's Evaluation Criteria
-Category	My Score	Why?
+
 Creativity (20%)Unique animations, gradient text, floating profile image
 Code Quality (20%)Clean, commented, W3C validated
 Documentation (15%)Detailed README, code comments
@@ -117,6 +117,7 @@ Deployment (15%)Works on Netlify + GitHub Pages
 Tech Stack (15%)HTML/CSS/JS + MySQL
 Peer Review (15%)	15/15	Incorporated feedback from my group
 💡 What Makes My Portfolio Unique?
+
 🔹 Balances professionalism & creativity – Not just another template!
 🔹 Proves my MySQL skills – Beyond basic frontend
 🔹 Mobile-first approach – Critical for modern web dev
