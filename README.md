@@ -7,6 +7,7 @@ Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently 
 
 ✨ Why This Portfolio?
 I designed this portfolio to:
+
 ✅ Showcase my technical skills in Mobile/Web Development & UI/UX
 
 ✅ Highlight my education (from primary school to university)
