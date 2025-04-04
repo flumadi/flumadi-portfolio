@@ -1,9 +1,8 @@
-# Enable SPA (Single Page App) routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# netlify.toml
+[build]
+  command = "echo 'No build needed'"  # Placeholder for static sites
+  publish = "."
 
-# Form settings
-[build.environment]
-  NODE_VERSION = "18"
+# Explicitly enable forms
+[features]
+  netlify-forms = true
