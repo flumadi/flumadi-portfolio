@@ -3,14 +3,18 @@ My Professional Portfolio -
 🌟 Welcome to My Digital Showcase
 Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently pursuing my degree at South Eastern Kenya University. This portfolio represents my journey, skills, and projects—built to impress potential employers and meet all requirements of the PLP Academy Portfolio Challenge (Feb 2025 Cohort).
 
-🔗 Live Demo: https://fridah-lumadi.vercel.app (Replace with your link after deployment)
+🔗 Live Demo: [https://fridah-lumadi.vercel.app](https://enchanting-pika-7fcf3c.netlify.app/) (Replace with your link after deployment)
 
 ✨ Why This Portfolio?
 I designed this portfolio to:
 ✅ Showcase my technical skills in Mobile/Web Development & UI/UX
+
 ✅ Highlight my education (from primary school to university)
+
 ✅ Display real projects with GitHub links and live demos
+
 ✅ Make networking easy with a functional MySQL contact form
+
 ✅ Stand out visually with a blue/purple/pink theme (professional yet creative)
 
 🛠️ Technologies I Used
@@ -62,7 +66,7 @@ Employers can download my resume with one click
 1. Clone My Repository
 bash
 Copy
-git clone https://github.com/fridahlumadi/flumadi_portfolio.git
+git clone [https://github.com/fridahlumadi/flumadi_portfolio.git](https://github.com/flumadi/flumadi-portfolio)
 cd flumadi_portfolio
 2. Run with XAMPP (MySQL)
 Place the folder in htdocs
@@ -108,14 +112,20 @@ End Date: April 4, 2025
 Award Ceremony: April 11, 2025
 
 ✅ How I Meet PLP's Evaluation Criteria
-Category	My Score	Why?
 Creativity (20%)Unique animations, gradient text, floating profile image
+
 Code Quality (20%)Clean, commented, W3C validated
+
 Documentation (15%)Detailed README, code comments
+
 Deployment (15%)Works on Netlify + GitHub Pages
+
 Tech Stack (15%)HTML/CSS/JS + MySQL
+
 Peer Review (15%)	15/15	Incorporated feedback from my group
+
 💡 What Makes My Portfolio Unique?
+
 🔹 Balances professionalism & creativity – Not just another template!
 🔹 Proves my MySQL skills – Beyond basic frontend
 🔹 Mobile-first approach – Critical for modern web dev
