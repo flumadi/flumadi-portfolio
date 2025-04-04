@@ -1033,7 +1033,11 @@ nav ul li.active a {
 .footer-newsletter .form-success i {
     color: var(--primary-blue);
 }
-
+.hidden {
+    display: none !important;
+    visibility: hidden;
+  }
+  
 @keyframes slideIn {
     from { transform: translateX(100%); }
     to { transform: translateX(0); }
@@ -1043,6 +1047,7 @@ nav ul li.active a {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+
 /* ====================== */
 /* INTERESTS PAGE STYLES */
 /* ====================== */
