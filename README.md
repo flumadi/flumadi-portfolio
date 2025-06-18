@@ -36,46 +36,33 @@ Netlify (Primary hosting)
 GitHub Pages (Backup static version)
 
 🚀 Key Features I Implemented
-1. Responsive Design
-Works perfectly on mobile, tablet, and desktop
+1. Responsive Design  
+Works perfectly on mobile, tablet, and desktop  
+Uses CSS Flexbox/Grid for adaptive layouts  
+2. Interactive Elements  
+Animated buttons (hover effects, smooth transitions)  
+Floating profile image on the homepage  
+Project carousel with GitHub links  
+3. Functional Contact System  
+PHP script saves messages to a MySQL database  
+User-friendly success/error notifications  
+4. Education & Work Timeline  
+5. Downloadable CV  
+Employers can download my resume with one click  
 
-Uses CSS Flexbox/Grid for adaptive layouts
+⚙️ How to Set Up Locally  
+1. Clone My Repository  
+bash  
+Copy  
+git clone   
+cd flumadi_portfolio  
+1. Run with XAMPP (MySQL)  
+Place the folder in htdocs  
 
-2. Interactive Elements
-Animated buttons (hover effects, smooth transitions)
+Start Apache & MySQL in XAMPP   
 
-Floating profile image on the homepage
-
-Project carousel with GitHub links
-
-3. Functional Contact System
-PHP script saves messages to a MySQL database
-
-User-friendly success/error notifications
-
-4. Education & Work Timeline
-Visual timeline showing:
-
-Tom & Jerry Kindergarten → Olonana Memorial Academy → St. Joseph's Girls High School → SEKU
-
-Robisearch Limited Internship (2024)
-
-5. Downloadable CV
-Employers can download my resume with one click
-
-⚙️ How to Set Up Locally
-1. Clone My Repository
-bash
-Copy
-git clone 
-cd flumadi_portfolio
-1. Run with XAMPP (MySQL)
-Place the folder in htdocs
-
-Start Apache & MySQL in XAMPP
-
-3. Database Setup (Optional)
-Open MySQL Workbench
+3. Database Setup (Optional)  
+Open MySQL Workbench  
 
 Run:
 
@@ -100,24 +87,14 @@ CREATE TABLE newsletter (<br>
   subscription_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
 );
 
-📝 Submission Readiness<br>
-📅 PLP Challenge Timeline
-Start Date: March 31, 2025
-
-End Date: April 4, 2025
-
-Award Ceremony: April 11, 2025
-
-✅ How I Meet PLP's Evaluation Criteria
-
 Creativity (20%)Unique animations, gradient text, floating profile image
 Code Quality (20%)Clean, commented, W3C validated
 Documentation (15%)Detailed README, code comments
 Deployment (15%)Works on Netlify + GitHub Pages
 Tech Stack (15%)HTML/CSS/JS + MySQL
 Peer Review (15%)	15/15	Incorporated feedback from my group
-💡 What Makes My Portfolio Unique?
 
+💡 What Makes My Portfolio Unique?
 🔹 Balances professionalism & creativity – Not just another template!
 🔹 Proves my MySQL skills – Beyond basic frontend
 🔹 Mobile-first approach – Critical for modern web dev
