@@ -1,24 +1,20 @@
-# flumadi-portfolio
-My Professional Portfolio - 
-🌟 Welcome to My Digital Showcase
-Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently pursuing my degree at South Eastern Kenya University. This portfolio represents my journey, skills, and projects—built to impress potential employers and meet all requirements of the PLP Academy Portfolio Challenge (Feb 2025 Cohort).
+# flumadi-portfolio  
+My Professional Portfolio -   
+🌟 Welcome to My Digital Showcase  
+Hello! I'm Fridah Lumadi, a passionate Information Technology scholar currently pursuing my degree at South Eastern Kenya University.   
+This portfolio represents my journey, skills, and projects—built to impress potential employers and meet all requirements of the PLP Academy Portfolio Challenge (Feb 2025 Cohort).  
 
 🔗 Live Demo: https://enchanting-pika-7fcf3c.netlify.app (Replace with your link after deployment)
 
 ✨ Why This Portfolio?
-I designed this portfolio to:
+I designed this portfolio to:  
+✅ Showcase my technical skills in Mobile/Web Development & UI/UX  
+✅ Highlight my education (from primary school to university)  
+✅ Display real projects with GitHub links and live demos  
+✅ Make networking easy with a functional MySQL contact form  
+✅ Stand out visually with a blue/purple/pink theme (professional yet creative)  
 
-✅ Showcase my technical skills in Mobile/Web Development & UI/UX
-
-✅ Highlight my education (from primary school to university)
-
-✅ Display real projects with GitHub links and live demos
-
-✅ Make networking easy with a functional MySQL contact form
-
-✅ Stand out visually with a blue/purple/pink theme (professional yet creative)
-
-🛠️ Technologies I Used
+🛠️ Technologies I Used  
 Frontend
 HTML5 (Semantic structure for accessibility)
 
