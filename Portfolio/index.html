@@ -11,9 +11,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>Fridah<span>Lumadi</span></h1>
-            </div>
+            <div class="logo"><h1>Fridah<span>Lumadi</span></h1></div>
             <nav>
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
@@ -64,7 +62,7 @@
             <h2>Featured Projects</h2>
             <p class="carousel-hint"><i class="fas fa-hand-pointer"></i> Hover to pause • Click a card to read more</p>
             <div class="carousel-wrapper">
-                <div class="projects-carousel" id="projectsCarousel">
+                <div class="projects-track" id="projectsTrack">
 
                     <div class="project" data-project="ticketing">
                         <img src="images/project1.jpg" alt="Customer Service Ticketing System">
@@ -110,8 +108,8 @@
 
                 </div>
                 <div class="carousel-controls">
-                    <button class="carousel-btn prev" onclick="scrollProjects(-1)" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-btn next" onclick="scrollProjects(1)" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
+                    <button class="carousel-btn prev" onclick="scrollProjects(-1)" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" onclick="scrollProjects(1)" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -176,10 +174,7 @@
                     </div>
                     <div class="testimonial-author">
                         <img src="images/client1.jpg" alt="Colleague">
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <p>Fellow Developer, TechSolutions Ltd</p>
-                        </div>
+                        <div><h4>Sarah Johnson</h4><p>Fellow Developer, TechSolutions Ltd</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -189,10 +184,7 @@
                     </div>
                     <div class="testimonial-author">
                         <img src="images/client3.jpg" alt="Colleague">
-                        <div>
-                            <h4>Raphael Njoroge</h4>
-                            <p>Team Lead, WebDev Collective</p>
-                        </div>
+                        <div><h4>Raphael Njoroge</h4><p>Team Lead, WebDev Collective</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -202,10 +194,7 @@
                     </div>
                     <div class="testimonial-author">
                         <img src="images/client2.jpg" alt="Colleague">
-                        <div>
-                            <h4>Grace Mwangi</h4>
-                            <p>Database Architect, DataInsights</p>
-                        </div>
+                        <div><h4>Grace Mwangi</h4><p>Database Architect, DataInsights</p></div>
                     </div>
                 </div>
             </div>
@@ -241,10 +230,7 @@
                     <input type="hidden" name="form-name" value="newsletter">
                     <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
                     <input type="email" id="newsletterEmail" name="email" placeholder="Your Email" required aria-label="Your email address">
-                    <button type="submit" class="btn">
-                        <span class="btn-text">Subscribe</span>
-                        <i class="fas fa-spinner loading-spinner"></i>
-                    </button>
+                    <button type="submit" class="btn"><span class="btn-text">Subscribe</span><i class="fas fa-spinner loading-spinner"></i></button>
                     <div class="form-response-message"></div>
                 </form>
             </div>
