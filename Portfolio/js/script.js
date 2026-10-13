@@ -496,7 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initCarousel();
     initProjectModal();
-    initCredentialModal();   // ← this is the missing piece
 
     // Netlify forms
     document.querySelectorAll('form[netlify]').forEach(form => {
