@@ -284,47 +284,6 @@ const PROJECT_DATA = {
 };
 
 // ====================== //
-// CREDENTIAL DATA
-// ====================== //
-const CREDENTIAL_DATA = {
-    plp:           { title: "Power Learn Project Program",     subtitle: "Software Development • Feb 2025 – June 2025",          image: "images/plp-cert.png" },
-    alx:           { title: "ALX AI Starter Kit Program",      subtitle: "Completed June 2025",                                   image: "images/alx-cert.png" },
-    ieee:          { title: "IEEE Student & Computer Society", subtitle: "IEEE Computer Society • Kenyan Section Region 8",       image: "images/ieee-badge.jpg" },
-    dataanalytics: { title: "Data Analytics Training",         subtitle: "ICT Authority Kenya • March 2026",                      image: "images/dataanalytics-cert.png" },
-    ibm:           { title: "IBM SkillsBuild",                 subtitle: "Data Fundamentals • March 2026",                       image: "images/ibm-cert.png" },
-    plphack:       { title: "PLP Web Development Hackathons",  subtitle: "Power Learn Project",                                   image: "images/plp-hackathon.png" },
-    sekuhack:      { title: "Seku Data Science Hackathon",     subtitle: "Hack4dev",                                              image: "images/seku-hackathon.png" },
-    designhack:    { title: "Design Thinking Hackathon",       subtitle: "Riarra University × Anza Village",                      image: "images/design-hackathon.png" },
-    athack:        { title: "Africa's Talking Open Hackathon", subtitle: "Africa's Talking",                                      image: "images/at-hackathon.png" }
-};
-
-// ====================== //
-// CREDENTIAL MODAL
-// ====================== //
-function openCredential(key) {
-    console.log('[credential] opening:', key);
-    const modal = document.getElementById('credentialModal');
-    const data = CREDENTIAL_DATA[key];
-    if (!modal) { console.error('modal missing'); return; }
-    if (!data)  { console.error('no data for key:', key); return; }
-
-    document.getElementById('credModalTitle').textContent    = data.title;
-    document.getElementById('credModalSubtitle').textContent = data.subtitle;
-    document.getElementById('credModalImage').src            = data.image;
-    document.getElementById('credModalImage').alt            = data.title;
-    document.getElementById('credModalLink').href            = data.image;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeCredential() {
-    const modal = document.getElementById('credentialModal');
-    if (modal) modal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// ====================== //
 // CAROUSEL — AUTO MARQUEE
 // ====================== //
 function initCarousel() {
@@ -470,18 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initProjectModal();
 
-    // Credential modal close handlers
-    const credModal = document.getElementById('credentialModal');
-    if (credModal) {
-        credModal.addEventListener('click', (e) => {
-            if (e.target.closest('[data-close-cred]')) closeCredential();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && credModal.classList.contains('active')) closeCredential();
-        });
-    }
-
-    // Netlify forms
     document.querySelectorAll('form[netlify]').forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
