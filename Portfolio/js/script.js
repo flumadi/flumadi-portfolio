@@ -1,63 +1,97 @@
-// Mobile Navigation
+// ====================== //
+// MOBILE MENU (FIXED)
+// ====================== //
 function initMobileMenu() {
-    const menuToggle = document.createElement('div');
-    menuToggle.className = 'mobile-menu-toggle';
-    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    document.querySelector('header .container').prepend(menuToggle);
-    
-    menuToggle.addEventListener('click', () => {
-        document.querySelector('nav').classList.toggle('active');
+    // Insert hamburger before logo if not already present
+    if (!document.querySelector('.mobile-menu-toggle')) {
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'mobile-menu-toggle';
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.setAttribute('aria-label', 'Toggle navigation');
+        const headerContainer = document.querySelector('header .container');
+        headerContainer.insertBefore(menuToggle, headerContainer.firstChild);
+
+        menuToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // Close menu when a nav link is clicked
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-toggle i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
     });
 }
 
-// Notification function (for floating alerts)
+// ====================== //
+// NOTIFICATIONS
+// ====================== //
 function showNotification(type, message) {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed; top: 90px; right: 20px; z-index: 9999;
+        padding: 14px 22px; border-radius: 8px; color: white;
+        font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        background: ${type === 'success' ? '#3498db' : '#e91e63'};
+        animation: slideIn 0.4s ease;
+    `;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
-        notification.classList.add('fade-out');
+        notification.style.animation = 'fadeOut 0.3s ease';
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
-// Form Response Handler (for inline messages)
+// ====================== //
+// FORM RESPONSE
+// ====================== //
 function showFormResponse(form, type, message) {
     const responseEl = form.querySelector('.form-response-message');
     if (responseEl) {
         responseEl.textContent = message;
         responseEl.className = `form-response-message ${type}`;
-        setTimeout(() => responseEl.classList.add('fade-out'), 3000);
     }
 }
 
-// Form Submission Handler (Netlify Optimized)
+// ====================== //
+// NETLIFY FORM HANDLER
+// ====================== //
 async function handleNetlifyForm(form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalContent = submitBtn.innerHTML;
     const formName = form.getAttribute('name') || 'form';
 
     try {
-        // Show loading state
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
-            <span class="btn-text">${submitBtn.textContent.trim()}</span>
+            <span class="btn-text">Sending...</span>
             <i class="fas fa-spinner fa-spin"></i>
         `;
-        // Button loading state
-submitBtn.innerHTML = `
-<span class="btn-text">${submitBtn.textContent.trim()}</span>
-<i class="fas fa-spinner fa-spin"></i>
-`;
 
-
-        // Convert to FormData for Netlify
         const formData = new FormData(form);
         const urlEncoded = new URLSearchParams(formData).toString();
 
-        // Submit to Netlify
         const response = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -65,36 +99,30 @@ submitBtn.innerHTML = `
         });
 
         if (response.ok) {
-            // Success handling
             const successMsg = form.dataset.successMessage || 'Thank you! Your submission was received.';
             showFormResponse(form, 'success', successMsg);
             showNotification('success', successMsg);
             form.reset();
-            
-            // Hide form if success element exists
-            const successElement = form.nextElementSibling?.classList?.contains('form-success');
-            if (successElement) form.style.display = 'none';
         } else {
             throw new Error('Form submission failed');
         }
     } catch (error) {
-        // Error handling
         const errorMsg = 'Submission failed. Please try again.';
         showFormResponse(form, 'error', errorMsg);
         showNotification('error', errorMsg);
         console.error(`${formName} error:`, error);
     } finally {
-        // Reset button state
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalContent;
     }
 }
 
-// Initialize all functionality
+// ====================== //
+// INIT
+// ====================== //
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
-    
-    // Netlify Form Handling
+
     const netlifyForms = document.querySelectorAll('form[netlify]');
     netlifyForms.forEach(form => {
         form.addEventListener('submit', (e) => {
@@ -102,13 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
             handleNetlifyForm(form);
         });
     });
-
-    // Legacy fallback for non-Netlify forms
-    const contactForm = document.getElementById('contactForm') || document.querySelector('.contact-form');
-    if (contactForm && !contactForm.hasAttribute('netlify')) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            showNotification('error', 'Form configuration error: Netlify attributes missing');
-        });
-    }
 });
