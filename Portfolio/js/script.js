@@ -335,7 +335,7 @@ const CREDENTIAL_DATA = {
 };
 
 // ====================== //
-// CREDENTIAL MODAL — global function called by inline onclick
+// CREDENTIAL MODAL
 // ====================== //
 function openCredential(key) {
     const modal = document.getElementById('credentialModal');
@@ -359,6 +359,7 @@ function openCredential(key) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    console.log('[credential] opened:', key);
 }
 
 function closeCredential() {
@@ -368,21 +369,55 @@ function closeCredential() {
     document.body.style.overflow = '';
 }
 
-// Wire up close behaviour on load
-document.addEventListener('DOMContentLoaded', () => {
+function initCredentialModal() {
     const modal = document.getElementById('credentialModal');
-    if (!modal) return;
+    if (!modal) {
+        console.error('[credential] modal markup missing from aboutme.html');
+        return;
+    }
 
+    // Attach click handlers to every cert + hackathon card
+    const cards = document.querySelectorAll('.cert-card, .hackathon-card');
+    console.log('[credential] found', cards.length, 'cards');
+
+    cards.forEach(card => {
+        // Get the key from the inline onclick if it exists, otherwise from data-cert
+        let key = card.getAttribute('data-cert');
+
+        if (!key) {
+            const onclickAttr = card.getAttribute('onclick') || '';
+            const match = onclickAttr.match(/openCredential\(['"]([^'"]+)['"]\)/);
+            if (match) key = match[1];
+        }
+
+        if (!key) {
+            console.warn('[credential] card has no key:', card);
+            return;
+        }
+
+        // Remove the inline onclick so it doesn't double-fire
+        card.removeAttribute('onclick');
+
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCredential(key);
+        });
+    });
+
+    // Close handlers
     modal.addEventListener('click', (e) => {
         if (e.target.closest('[data-close-cred]')) closeCredential();
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeCredential();
-        }
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeCredential();
     });
-});
+
+    console.log('[credential] ready ✅');
+}
+
+// Add to the DOMContentLoaded init block:
+// (find the block at the bottom of script.js and add initCredentialModal(); inside)
 
 // ====================== //
 // CAROUSEL — AUTO MARQUEE
