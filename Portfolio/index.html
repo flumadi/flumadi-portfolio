@@ -62,70 +62,82 @@
     <section class="featured-projects">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-carousel" id="projectsCarousel">
-                <!-- Project 1 -->
-                <div class="project">
-                    <img src="images/project1.jpg" alt="Customer Service Ticketing System">
-                    <a href="#" target="_blank"><h3>Customer Service Ticketing System</h3></a>
-                    <p>Python (Flask) + MySQL ticketing system integrated with Sage 300 ERP for client support tracking.</p>
-                    <span class="project-tag">Python • Flask • MySQL</span>
-                </div>
+            <p class="carousel-hint"><i class="fas fa-hand-pointer"></i> Hover to pause • Click a card to read more</p>
+            <div class="carousel-wrapper">
+                <div class="projects-carousel" id="projectsCarousel">
 
-                <!-- Project 2 -->
-                <div class="project">
-                    <img src="images/project2.jpg" alt="Youth Skill Hub">
-                    <a href="https://github.com/flumadi" target="_blank"><h3>Youth Skill Hub</h3></a>
-                    <p>A platform connecting youth to skill-building resources and opportunities, built with HTML, CSS, and TypeScript.</p>
-                    <span class="project-tag">HTML • CSS • TypeScript</span>
-                </div>
+                    <div class="project" data-project="ticketing">
+                        <img src="images/project1.jpg" alt="Customer Service Ticketing System">
+                        <h3>Customer Service Ticketing System</h3>
+                        <p>Python (Flask) + MySQL ticketing system integrated with Sage 300 ERP for client support tracking.</p>
+                        <span class="project-tag">Python • Flask • MySQL</span>
+                    </div>
 
-                <!-- Project 3 -->
-                <div class="project">
-                    <img src="images/project3.jpg" alt="Digital Wallet App">
-                    <a href="https://github.com/flumadi" target="_blank"><h3>Digital Wallet App</h3></a>
-                    <p>Cross-platform mobile wallet for seamless transactions, built with Flutter and Dart.</p>
-                    <span class="project-tag">Flutter • Dart</span>
-                </div>
+                    <div class="project" data-project="youthhub">
+                        <img src="images/project2.jpg" alt="Youth Skill Hub">
+                        <h3>Youth Skill Hub</h3>
+                        <p>A platform connecting youth to skill-building resources and opportunities.</p>
+                        <span class="project-tag">HTML • CSS • TypeScript</span>
+                    </div>
 
-                <!-- Project 4 -->
-                <div class="project">
-                    <img src="images/project4.jpg" alt="Task Scheduler">
-                    <a href="https://github.com/flumadi/AidAtlas_tasksheduler" target="_blank"><h3>AidAtlas Task Scheduler</h3></a>
-                    <p>PHP-based task scheduling system for efficient time and project management.</p>
-                    <span class="project-tag">PHP • MySQL</span>
-                </div>
+                    <div class="project" data-project="wallet">
+                        <img src="images/project3.jpg" alt="Digital Wallet App">
+                        <h3>Digital Wallet App</h3>
+                        <p>Cross-platform mobile wallet for seamless transactions.</p>
+                        <span class="project-tag">Flutter • Dart</span>
+                    </div>
 
-                <!-- Project 5 -->
-                <div class="project">
-                    <img src="images/project5.jpg" alt="Predictive Data Analytics Dashboard">
-                    <a href="#" target="_blank"><h3>Predictive Analytics Dashboard</h3></a>
-                    <p>ML-powered dashboard visualizing predictive trends for business decision-making.</p>
-                    <span class="project-tag">Python • ML • Power BI</span>
-                </div>
+                    <div class="project" data-project="scheduler">
+                        <img src="images/project4.jpg" alt="Task Scheduler">
+                        <h3>AidAtlas Task Scheduler</h3>
+                        <p>PHP-based task scheduling system for efficient time and project management.</p>
+                        <span class="project-tag">PHP • MySQL</span>
+                    </div>
 
-                <!-- Project 6 -->
-                <div class="project">
-                    <img src="images/project6.jpg" alt="Flexible Websites">
-                    <a href="https://github.com/flumadi/homedesigning" target="_blank"><h3>Home Designing Website</h3></a>
-                    <p>Responsive marketing website for a home designing brand with modern UI/UX principles.</p>
-                    <span class="project-tag">HTML • CSS • WordPress</span>
+                    <div class="project" data-project="analytics">
+                        <img src="images/project5.jpg" alt="Predictive Data Analytics Dashboard">
+                        <h3>Predictive Analytics Dashboard</h3>
+                        <p>ML-powered dashboard visualizing predictive trends for business decisions.</p>
+                        <span class="project-tag">Python • ML • Power BI</span>
+                    </div>
+
+                    <div class="project" data-project="homedesign">
+                        <img src="images/project6.jpg" alt="Home Designing Website">
+                        <h3>Home Designing Website</h3>
+                        <p>Responsive marketing website for a home designing brand.</p>
+                        <span class="project-tag">HTML • CSS • WordPress</span>
+                    </div>
+
                 </div>
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn prev" onclick="scrollProjects(-1)"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-btn next" onclick="scrollProjects(1)"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="scrollProjects(-1)" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" onclick="scrollProjects(1)" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Close"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-header-text">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
 
     <section class="page-previews">
         <div class="container">
             <h2>Explore My World</h2>
             <div class="preview-grid">
                 <a href="aboutme.html" class="preview-card" data-animate="fadeInUp">
-                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80');">
-                        <div class="image-credit"></div>
-                    </div>
+                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="preview-content">
                         <h3>My Journey</h3>
                         <p>Discover my path in tech and academic growth</p>
@@ -133,9 +145,7 @@
                     </div>
                 </a>
                 <a href="interests.html" class="preview-card" data-animate="fadeInUp" data-delay="100">
-                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80');">
-                        <div class="image-credit"></div>
-                    </div>
+                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="preview-content">
                         <h3>Tech Passions</h3>
                         <p>See what excites me in Data Science, AI & Software Dev</p>
@@ -143,9 +153,7 @@
                     </div>
                 </a>
                 <a href="contact.html" class="preview-card" data-animate="fadeInUp" data-delay="200">
-                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80');">
-                        <div class="image-credit"></div>
-                    </div>
+                    <div class="preview-image" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="preview-content">
                         <h3>Let's Connect</h3>
                         <p>Reach out for collaborations or opportunities</p>
@@ -247,12 +255,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        function scrollProjects(direction) {
-            const carousel = document.getElementById('projectsCarousel');
-            const scrollAmount = 320;
-            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-    </script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
