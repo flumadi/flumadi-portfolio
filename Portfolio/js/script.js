@@ -300,7 +300,7 @@ const CREDENTIAL_DATA = {
     ieee: {
         title: "IEEE Student & Computer Society Member",
         subtitle: "IEEE Computer Society • Kenyan Section Region 8",
-        image: "images/ieee-badge.png"
+        image: "images/ieee-badge.jpg"
     },
     dataanalytics: {
         title: "Data Analytics Training",
