@@ -473,20 +473,26 @@ function initProjectModal() {
 }
 
 // ====================== //
-// CREDENTIAL MODAL
+// CREDENTIAL MODAL (event delegation — always works)
 // ====================== //
 function initCredentialModal() {
     const modal = document.getElementById('credentialModal');
-    if (!modal) return;
+    if (!modal) {
+        console.warn('[credential] modal markup missing from page');
+        return;
+    }
 
-    const modalTitle = document.getElementById('credModalTitle');
+    const modalTitle    = document.getElementById('credModalTitle');
     const modalSubtitle = document.getElementById('credModalSubtitle');
-    const modalImage = document.getElementById('credModalImage');
-    const modalLink = document.getElementById('credModalLink');
+    const modalImage    = document.getElementById('credModalImage');
+    const modalLink     = document.getElementById('credModalLink');
 
     function openModal(key) {
         const data = CREDENTIAL_DATA[key];
-        if (!data) return;
+        if (!data) {
+            console.warn('[credential] no data for key:', key);
+            return;
+        }
 
         modalTitle.textContent = data.title;
         modalSubtitle.textContent = data.subtitle;
@@ -503,90 +509,29 @@ function initCredentialModal() {
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('[data-cert]').forEach(card => {
-        card.addEventListener('click', () => {
+    // Event delegation on document — picks up any click on [data-cert], present or future
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('[data-cert]');
+        if (card) {
+            e.preventDefault();
             const key = card.getAttribute('data-cert');
             if (key) openModal(key);
-        });
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target.closest('[data-close-cred]')) closeModal();
+            return;
+        }
+        if (e.target.closest('[data-close-cred]')) {
+            closeModal();
+        }
     });
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
+
+    // Expose for manual testing in DevTools
+    window.openCredential = openModal;
+
+    console.log('[credential] ready ✅');
 }
-// ====================== //
-// CREDENTIAL MODAL — STANDALONE FALLBACK
-// Fires independently of any other init function
-// ====================== //
-(function credentialFallback() {
-    function boot() {
-        const modal = document.getElementById('credentialModal');
-        if (!modal) {
-            console.warn('[credential] modal markup missing from page');
-            return;
-        }
-
-        const modalTitle    = document.getElementById('credModalTitle');
-        const modalSubtitle = document.getElementById('credModalSubtitle');
-        const modalImage    = document.getElementById('credModalImage');
-        const modalLink     = document.getElementById('credModalLink');
-
-        // Expose a global open function for debugging
-        window.openCredential = function (key) {
-            const data = (typeof CREDENTIAL_DATA !== 'undefined') && CREDENTIAL_DATA[key];
-            if (!data) {
-                console.warn('[credential] no data for key:', key);
-                return;
-            }
-            modalTitle.textContent = data.title;
-            modalSubtitle.textContent = data.subtitle;
-            modalImage.src = data.image;
-            modalImage.alt = data.title;
-            modalLink.href = data.image;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-
-        function closeCred() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Use event delegation on document — catches any click, anytime
-        document.addEventListener('click', function (e) {
-            const card = e.target.closest('[data-cert]');
-            if (card) {
-                e.preventDefault();
-                e.stopPropagation();
-                const key = card.getAttribute('data-cert');
-                window.openCredential(key);
-                return;
-            }
-            if (e.target.closest('[data-close-cred]')) {
-                closeCred();
-            }
-        });
-
-        // Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeCred();
-            }
-        });
-
-        console.log('[credential] fallback handler attached ✅');
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', boot);
-    } else {
-        boot();
-    }
-})();
 
 // ====================== //
 // INIT
