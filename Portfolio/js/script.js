@@ -337,87 +337,56 @@ const CREDENTIAL_DATA = {
 // ====================== //
 // CREDENTIAL MODAL
 // ====================== //
+const CREDENTIAL_DATA = {
+    plp:           { title: "Power Learn Project Program",     subtitle: "Software Development • Feb 2025 – June 2025",          image: "images/plp-cert.png" },
+    alx:           { title: "ALX AI Starter Kit Program",      subtitle: "Completed June 2025",                                   image: "images/alx-cert.png" },
+    ieee:          { title: "IEEE Student & Computer Society", subtitle: "IEEE Computer Society • Kenyan Section Region 8",       image: "images/ieee-badge.jpg" },
+    dataanalytics: { title: "Data Analytics Training",         subtitle: "ICT Authority Kenya • March 2026",                      image: "images/dataanalytics-cert.png" },
+    ibm:           { title: "IBM SkillsBuild",                 subtitle: "Data Fundamentals • March 2026",                       image: "images/ibm-cert.png" },
+    plphack:       { title: "PLP Web Development Hackathons",  subtitle: "Power Learn Project",                                   image: "images/plp-hackathon.png" },
+    sekuhack:      { title: "Seku Data Science Hackathon",     subtitle: "Hack4dev",                                              image: "images/seku-hackathon.png" },
+    designhack:    { title: "Design Thinking Hackathon",       subtitle: "Riarra University × Anza Village",                      image: "images/design-hackathon.png" },
+    athack:        { title: "Africa's Talking Open Hackathon", subtitle: "Africa's Talking",                                      image: "images/at-hackathon.png" }
+};
+
 function openCredential(key) {
+    console.log('[credential] opening:', key);
     const modal = document.getElementById('credentialModal');
-    if (!modal) {
-        console.error('[credential] modal markup missing');
-        return;
-    }
-
     const data = CREDENTIAL_DATA[key];
-    if (!data) {
-        console.error('[credential] unknown key:', key);
-        return;
-    }
+    if (!modal) { console.error('modal missing'); return; }
+    if (!data)  { console.error('no data for key:', key); return; }
 
-    document.getElementById('credModalTitle').textContent = data.title;
+    document.getElementById('credModalTitle').textContent    = data.title;
     document.getElementById('credModalSubtitle').textContent = data.subtitle;
-    const img = document.getElementById('credModalImage');
-    img.src = data.image;
-    img.alt = data.title;
-    document.getElementById('credModalLink').href = data.image;
+    document.getElementById('credModalImage').src            = data.image;
+    document.getElementById('credModalImage').alt            = data.title;
+    document.getElementById('credModalLink').href            = data.image;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    console.log('[credential] opened:', key);
 }
 
 function closeCredential() {
     const modal = document.getElementById('credentialModal');
-    if (!modal) return;
-    modal.classList.remove('active');
+    if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
 }
 
-function initCredentialModal() {
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+
     const modal = document.getElementById('credentialModal');
-    if (!modal) {
-        console.error('[credential] modal markup missing from aboutme.html');
-        return;
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target.closest('[data-close-cred]')) closeCredential();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeCredential();
+        });
     }
 
-    // Attach click handlers to every cert + hackathon card
-    const cards = document.querySelectorAll('.cert-card, .hackathon-card');
-    console.log('[credential] found', cards.length, 'cards');
-
-    cards.forEach(card => {
-        // Get the key from the inline onclick if it exists, otherwise from data-cert
-        let key = card.getAttribute('data-cert');
-
-        if (!key) {
-            const onclickAttr = card.getAttribute('onclick') || '';
-            const match = onclickAttr.match(/openCredential\(['"]([^'"]+)['"]\)/);
-            if (match) key = match[1];
-        }
-
-        if (!key) {
-            console.warn('[credential] card has no key:', card);
-            return;
-        }
-
-        // Remove the inline onclick so it doesn't double-fire
-        card.removeAttribute('onclick');
-
-        card.addEventListener('click', (e) => {
-            e.preventDefault();
-            openCredential(key);
-        });
-    });
-
-    // Close handlers
-    modal.addEventListener('click', (e) => {
-        if (e.target.closest('[data-close-cred]')) closeCredential();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeCredential();
-    });
-
-    console.log('[credential] ready ✅');
-}
-
-// Add to the DOMContentLoaded init block:
-// (find the block at the bottom of script.js and add initCredentialModal(); inside)
+    console.log('[script] loaded ✅');
+});
 
 // ====================== //
 // CAROUSEL — AUTO MARQUEE
