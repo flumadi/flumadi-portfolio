@@ -1,4 +1,6 @@
-/* Hero Section */
+/* ====================== */
+/* HERO SECTION */
+/* ====================== */
 .hero {
     background: linear-gradient(135deg, var(--light-blue), var(--white));
     padding: 150px 0 80px;
@@ -47,7 +49,9 @@
     border: 5px solid var(--white);
 }
 
-/* About Section */
+/* ====================== */
+/* ABOUT SECTION */
+/* ====================== */
 .about {
     background-color: var(--white);
 }
@@ -99,7 +103,126 @@
     left: 0;
     color: var(--pink);
 }
-/* Page Previews Section */
+
+/* ====================== */
+/* FEATURED PROJECTS CAROUSEL */
+/* ====================== */
+.featured-projects {
+    background: linear-gradient(135deg, var(--white), var(--light-blue));
+    padding: 80px 0;
+}
+
+.featured-projects h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 50px;
+}
+
+.projects-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 25px;
+    padding: 10px 5px 25px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple) var(--light-gray);
+}
+
+.projects-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 10px;
+}
+
+.projects-carousel .project {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.projects-carousel .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project h3 {
+    padding: 15px 20px 0;
+    color: var(--dark-blue);
+    font-size: 18px;
+}
+
+.project p {
+    padding: 0 20px 15px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.project-tag {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 4px 12px;
+    background: var(--light-blue);
+    color: var(--dark-blue);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.carousel-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--dark-blue);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* ====================== */
+/* PAGE PREVIEWS SECTION */
+/* ====================== */
 .page-previews {
     padding: 80px 0;
     background: var(--white);
@@ -120,22 +243,14 @@
 
 .preview-card {
     display: block;
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    text-decoration: none;
-    color: var(--dark-gray);
-}
-/* Feminine Tech Preview Cards */
-.preview-card {
     background: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(158, 102, 173, 0.1);
     transition: all 0.3s ease;
     border: 1px solid rgba(155, 89, 182, 0.1);
+    text-decoration: none;
+    color: var(--dark-gray);
 }
 
 .preview-card:hover {
@@ -187,86 +302,141 @@
     color: var(--dark-blue);
     transform: translateX(5px);
 }
-.preview-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+/* ====================== */
+/* ACHIEVEMENTS SECTION */
+/* ====================== */
+.achievements {
+    padding: 80px 0;
+    background: var(--white);
 }
 
-.preview-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
+.achievements-list {
+    max-width: 900px;
+    margin: 0 auto;
+    list-style: none;
 }
 
-.preview-card h3 {
-    padding: 20px 20px 10px;
-    color: var(--primary-blue);
-    font-size: 22px;
+.achievements-list li {
+    position: relative;
+    padding: 15px 20px 15px 50px;
+    margin-bottom: 15px;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--pink);
+    transition: var(--transition);
+    color: #555;
+    line-height: 1.6;
 }
 
-.preview-card p {
-    padding: 0 20px 20px;
-    color: #666;
+.achievements-list li::before {
+    content: '★';
+    position: absolute;
+    left: 20px;
+    color: var(--pink);
+    font-size: 18px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .page-previews h2 {
-        font-size: 30px;
-    }
-    
-    .preview-grid {
-        grid-template-columns: 1fr;
-    }
+.achievements-list li:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow);
 }
 
-/* Featured Projects */
-.featured-projects {
+/* ====================== */
+/* CERTIFICATIONS SECTION */
+/* ====================== */
+.certifications {
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--white), var(--light-blue));
 }
 
-.featured-projects h2 {
-    text-align: center;
-    font-size: 36px;
-    color: var(--primary-blue);
-    margin-bottom: 50px;
-}
-
-.projects-carousel {
+.certs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
-.project {
+.cert-card {
     background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 25px;
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border-top: 4px solid var(--purple);
 }
 
-.project:hover {
-    transform: translateY(-10px);
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-top-color: var(--pink);
 }
 
-.project img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.cert-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    font-size: 18px;
 }
 
-.project h3 {
-    padding: 15px 20px 0;
-    color: var(--dark-blue);
+.cert-date {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--purple);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
-.project p {
-    padding: 0 20px 20px;
+.cert-card p {
     color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
 }
 
-/* Responsive Design */
+/* ====================== */
+/* HACKATHONS SECTION */
+/* ====================== */
+.hackathons {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.hackathons-list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.hackathons-list li {
+    position: relative;
+    padding: 15px 20px 15px 50px;
+    margin-bottom: 12px;
+    background: var(--light-blue);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    color: #555;
+    line-height: 1.6;
+}
+
+.hackathons-list li::before {
+    content: '\f091';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 20px;
+    color: var(--pink);
+}
+
+.hackathons-list li:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow);
+}
+
+/* ====================== */
+/* RESPONSIVE DESIGN */
+/* ====================== */
 @media (max-width: 992px) {
     .hero .container {
         flex-direction: column;
@@ -294,5 +464,17 @@
 
     .hero-content h3 {
         font-size: 20px;
+    }
+
+    .page-previews h2 {
+        font-size: 30px;
+    }
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-carousel .project {
+        flex: 0 0 260px;
     }
 }
