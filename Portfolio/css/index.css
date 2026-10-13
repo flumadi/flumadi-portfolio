@@ -713,6 +713,20 @@
         text-align: center;
     }
 }
+/* Anchor-based cert / hackathon cards (Option 1) */
+a.cert-card,
+a.hackathon-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a.cert-card:hover,
+a.hackathon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(155, 89, 182, 0.18);
+}
 
 @media (max-width: 480px) {
     .hero-content h2 { font-size: 24px; }
