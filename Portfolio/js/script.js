@@ -284,13 +284,63 @@ const PROJECT_DATA = {
 };
 
 // ====================== //
+// CREDENTIAL DATA
+// ====================== //
+const CREDENTIAL_DATA = {
+    plp: {
+        title: "Power Learn Project Program",
+        subtitle: "Software Development – Mobile App Development • Feb 2025 – June 2025",
+        image: "images/plp-cert.png"
+    },
+    alx: {
+        title: "ALX AI Starter Kit Program",
+        subtitle: "Completed June 2025",
+        image: "images/alx-cert.png"
+    },
+    ieee: {
+        title: "IEEE Student & Computer Society Member",
+        subtitle: "IEEE Computer Society • Kenyan Section Region 8",
+        image: "images/ieee-badge.png"
+    },
+    dataanalytics: {
+        title: "Data Analytics Training",
+        subtitle: "ICT Authority Kenya × Data Breed Africa • March 2026",
+        image: "images/dataanalytics-cert.png"
+    },
+    ibm: {
+        title: "IBM SkillsBuild – Data Fundamentals",
+        subtitle: "Completed March 2026",
+        image: "images/ibm-cert.png"
+    },
+    plphack: {
+        title: "PLP Web Development Hackathons",
+        subtitle: "Power Learn Project",
+        image: "images/plp-hackathon.png"
+    },
+    sekuhack: {
+        title: "Seku Data Science Regional Hackathon",
+        subtitle: "Hack4dev",
+        image: "images/seku-hackathon.png"
+    },
+    designhack: {
+        title: "Design Thinking Hackathon",
+        subtitle: "Riarra University × Anza Village",
+        image: "images/design-hackathon.png"
+    },
+    athack: {
+        title: "Africa's Talking Open Hackathon",
+        subtitle: "Africa's Talking",
+        image: "images/at-hackathon.png"
+    }
+};
+
+// ====================== //
 // CAROUSEL — AUTO MARQUEE
 // ====================== //
 function initCarousel() {
     const track = document.getElementById('projectsTrack');
     if (!track) return;
 
-    // Duplicate the original cards once for a seamless loop
     track.innerHTML = track.innerHTML + track.innerHTML;
 
     const cards = Array.from(track.children);
@@ -301,8 +351,6 @@ function initCarousel() {
     let paused = false;
     let modalOpen = false;
     let dragging = false;
-    let dragStartX = 0;
-    let dragStartOffset = 0;
     let wasDragged = false;
 
     function setWidth() {
@@ -321,7 +369,6 @@ function initCarousel() {
         requestAnimationFrame(tick);
     }
 
-    // Pause on hover / touch / wheel
     track.addEventListener('mouseenter', () => paused = true);
     track.addEventListener('mouseleave', () => paused = false);
     track.addEventListener('touchstart', () => paused = true, { passive: true });
@@ -337,7 +384,9 @@ function initCarousel() {
     window.addEventListener('project-modal-opened', () => modalOpen = true);
     window.addEventListener('project-modal-closed', () => modalOpen = false);
 
-    // Drag with mouse
+    let dragStartX = 0;
+    let dragStartOffset = 0;
+
     track.addEventListener('mousedown', (e) => {
         dragging = true;
         wasDragged = false;
@@ -363,21 +412,8 @@ function initCarousel() {
     requestAnimationFrame(tick);
 }
 
-// Arrow controls
-function scrollProjects(direction) {
-    const track = document.getElementById('projectsTrack');
-    if (!track) return;
-    // Animate a step via style translate
-    const step = 320;
-    const current = parseFloat((track.style.transform.match(/-?[\d.]+/) || [0])[0]) || 0;
-    const target = current - direction * step;
-    track.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-    track.style.transform = `translateX(${target}px)`;
-    setTimeout(() => { track.style.transition = ''; }, 550);
-}
-
 // ====================== //
-// MODAL
+// PROJECT MODAL
 // ====================== //
 function initProjectModal() {
     const modal = document.getElementById('projectModal');
@@ -399,7 +435,6 @@ function initProjectModal() {
         modalTag.textContent = data.tag;
         modalBody.innerHTML = data.body;
 
-        // Repo / demo links
         let linksHTML = '<div class="modal-links">';
         if (data.repo) linksHTML += `<a href="${data.repo}" target="_blank" rel="noopener" class="modal-link repo-link"><i class="fab fa-github"></i> View Repository</a>`;
         if (data.demo) linksHTML += `<a href="${data.demo}" target="_blank" rel="noopener" class="modal-link demo-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>`;
@@ -438,12 +473,60 @@ function initProjectModal() {
 }
 
 // ====================== //
+// CREDENTIAL MODAL
+// ====================== //
+function initCredentialModal() {
+    const modal = document.getElementById('credentialModal');
+    if (!modal) return;
+
+    const modalTitle = document.getElementById('credModalTitle');
+    const modalSubtitle = document.getElementById('credModalSubtitle');
+    const modalImage = document.getElementById('credModalImage');
+    const modalLink = document.getElementById('credModalLink');
+
+    function openModal(key) {
+        const data = CREDENTIAL_DATA[key];
+        if (!data) return;
+
+        modalTitle.textContent = data.title;
+        modalSubtitle.textContent = data.subtitle;
+        modalImage.src = data.image;
+        modalImage.alt = data.title;
+        modalLink.href = data.image;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-cert]').forEach(card => {
+        card.addEventListener('click', () => {
+            const key = card.getAttribute('data-cert');
+            if (key) openModal(key);
+        });
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.closest('[data-close-cred]')) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+}
+
+// ====================== //
 // INIT
 // ====================== //
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initCarousel();
     initProjectModal();
+    initCredentialModal();
 
     document.querySelectorAll('form[netlify]').forEach(form => {
         form.addEventListener('submit', (e) => {
