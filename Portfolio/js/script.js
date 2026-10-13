@@ -224,7 +224,7 @@ const PROJECT_DATA = {
     analytics: {
         title: "Predictive Analytics Dashboard",
         tag: "Python • ML • Power BI",
-        image: "images/project6.jpg",
+        image: "images/project6.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
