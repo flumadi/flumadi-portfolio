@@ -181,30 +181,36 @@
     <section class="certifications">
         <div class="container">
             <h2 class="section-title">Certifications & Involvements</h2>
+            <p class="section-subtitle">Click any card to view the credential</p>
             <div class="certs-grid">
-                <div class="cert-card">
+                <div class="cert-card" data-cert="plp">
                     <h4>Power Learn Project Program</h4>
                     <p class="cert-date">Feb 2025 – June 2025</p>
                     <p>Software Development – Mobile App Development using Dart/Flutter. Participated in 3 hackathons and multiple masterclasses.</p>
+                    <span class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="alx">
                     <h4>ALX AI Starter Kit Program</h4>
                     <p class="cert-date">Completed June 2025</p>
                     <p>4-week beginner AI program covering NotebookLM, Lindy.AI, ChatGPT, Groq, and more.</p>
+                    <span class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="ieee">
                     <h4>IEEE Student & Computer Society</h4>
                     <p>Active member of IEEE Computer Society, Kenyan Section Region 8. Attended Konza Technopolis visit and volunteered as Graphics Designer for IEEE EPS Summer School (July 2026).</p>
+                    <span class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="dataanalytics">
                     <h4>Data Analytics Training</h4>
                     <p class="cert-date">March 2026</p>
                     <p>3-day training by ICT Authority Kenya with Data Breed Africa – Data Analytics, Python, Power BI, Data Science fundamentals.</p>
+                    <span class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="ibm">
                     <h4>IBM SkillsBuild – Data Fundamentals</h4>
                     <p class="cert-date">Completed March 2026</p>
                     <p>Self-paced Data Fundamentals course by IBM SkillsBuild.</p>
+                    <span class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></span>
                 </div>
             </div>
         </div>
@@ -213,27 +219,31 @@
     <section class="hackathons">
         <div class="container">
             <h2 class="section-title">Hackathons</h2>
-            <p class="section-subtitle">A few of the tech events I've competed in ✨</p>
+            <p class="section-subtitle">A few of the tech events I've competed in ✨ — click to view the certificate</p>
             <div class="hackathons-grid">
-                <div class="hackathon-card">
+                <div class="hackathon-card" data-cert="plphack">
                     <div class="hackathon-icon"><i class="fas fa-code-branch"></i></div>
                     <h4>PLP Web Development Hackathons</h4>
                     <p>Power Learn Project</p>
+                    <span class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="hackathon-card">
+                <div class="hackathon-card" data-cert="sekuhack">
                     <div class="hackathon-icon"><i class="fas fa-chart-bar"></i></div>
                     <h4>Seku Data Science Regional Hackathon</h4>
                     <p>Hack4dev</p>
+                    <span class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="hackathon-card">
+                <div class="hackathon-card" data-cert="designhack">
                     <div class="hackathon-icon"><i class="fas fa-lightbulb"></i></div>
                     <h4>Design Thinking Hackathon</h4>
                     <p>Riarra University × Anza Village</p>
+                    <span class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></span>
                 </div>
-                <div class="hackathon-card">
+                <div class="hackathon-card" data-cert="athack">
                     <div class="hackathon-icon"><i class="fas fa-satellite-dish"></i></div>
                     <h4>Africa's Talking Open Hackathon</h4>
                     <p>Africa's Talking</p>
+                    <span class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></span>
                 </div>
             </div>
         </div>
@@ -285,6 +295,27 @@
         </div>
     </footer>
 
+    <!-- CREDENTIAL MODAL -->
+    <div class="credential-modal" id="credentialModal" role="dialog" aria-modal="true" aria-labelledby="credModalTitle">
+        <div class="modal-overlay" data-close-cred></div>
+        <div class="credential-content">
+            <button class="modal-close" data-close-cred aria-label="Close"><i class="fas fa-times"></i></button>
+            <div class="credential-header">
+                <h2 id="credModalTitle"></h2>
+                <p id="credModalSubtitle"></p>
+            </div>
+            <div class="credential-image-wrap">
+                <img id="credModalImage" src="" alt="">
+            </div>
+            <div class="credential-actions">
+                <a id="credModalLink" href="#" target="_blank" rel="noopener" class="modal-link demo-link">
+                    <i class="fas fa-external-link-alt"></i> Open Full Size
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
