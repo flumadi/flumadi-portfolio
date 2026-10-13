@@ -106,7 +106,7 @@ const PROJECT_DATA = {
     ticketing: {
         title: "Customer Service Ticketing System",
         tag: "Python • Flask • MySQL • Sage 300",
-        image: "images/project4.png",
+        image: "images/project1.jpg",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -135,7 +135,7 @@ const PROJECT_DATA = {
     youthhub: {
         title: "Youth Skill Hub",
         tag: "HTML • CSS • TypeScript",
-        image: "images/project5.png",
+        image: "images/project2.jpg",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -194,7 +194,7 @@ const PROJECT_DATA = {
     scheduler: {
         title: "AidAtlas Task Scheduler",
         tag: "PHP • MySQL • Web App",
-        image: "images/project1.jpg",
+        image: "images/project4.jpg",
         repo: "https://github.com/flumadi/AidAtlas_tasksheduler",
         demo: "",
         body: `
@@ -224,7 +224,7 @@ const PROJECT_DATA = {
     analytics: {
         title: "Predictive Analytics Dashboard",
         tag: "Python • ML • Power BI",
-        image: "images/project6.png",
+        image: "images/project5.jpg",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -254,7 +254,7 @@ const PROJECT_DATA = {
     homedesign: {
         title: "Home Designing Website",
         tag: "HTML • CSS • WordPress",
-        image: "images/project2.jpg",
+        image: "images/project6.jpg",
         repo: "https://github.com/flumadi/homedesigning",
         demo: "",
         body: `
@@ -473,7 +473,7 @@ function initProjectModal() {
 }
 
 // ====================== //
-// CREDENTIAL MODAL (event delegation — always works)
+// CREDENTIAL MODAL — whole card is the trigger
 // ====================== //
 function initCredentialModal() {
     const modal = document.getElementById('credentialModal');
@@ -493,7 +493,6 @@ function initCredentialModal() {
             console.warn('[credential] no data for key:', key);
             return;
         }
-
         modalTitle.textContent = data.title;
         modalSubtitle.textContent = data.subtitle;
         modalImage.src = data.image;
@@ -509,14 +508,16 @@ function initCredentialModal() {
         document.body.style.overflow = '';
     }
 
-    // Event delegation on document — picks up any click on [data-cert], present or future
+    // Event delegation — any click on a cert / hackathon card opens the modal
     document.addEventListener('click', (e) => {
-        const card = e.target.closest('[data-cert]');
+        const card = e.target.closest('.cert-card, .hackathon-card');
         if (card) {
-            e.preventDefault();
             const key = card.getAttribute('data-cert');
-            if (key) openModal(key);
-            return;
+            if (key) {
+                e.preventDefault();
+                openModal(key);
+                return;
+            }
         }
         if (e.target.closest('[data-close-cred]')) {
             closeModal();
@@ -527,9 +528,8 @@ function initCredentialModal() {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
-    // Expose for manual testing in DevTools
+    // Expose for manual debugging in DevTools
     window.openCredential = openModal;
-
     console.log('[credential] ready ✅');
 }
 
