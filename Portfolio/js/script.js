@@ -438,30 +438,57 @@ const CREDENTIAL_DATA = {
 };
 
 // ====================== //
-// CREDENTIAL MODAL
+// CREDENTIAL MODAL — Option 2 (data-image based)
 // ====================== //
-function openCredential(key) {
-    console.log('[credential] opening:', key);
-    const modal = document.getElementById('credentialModal');
-    const data = CREDENTIAL_DATA[key];
-    if (!modal) { console.error('modal missing'); return; }
-    if (!data)  { console.error('no data for key:', key); return; }
+function initCredentialModal() {
+    const modal         = document.getElementById('credentialModal');
+    const modalImage    = document.getElementById('credModalImage');
+    const modalTitle    = document.getElementById('credModalTitle');
+    const modalSubtitle = document.getElementById('credModalSubtitle');
+    const modalLink     = document.getElementById('credModalLink');
 
-    document.getElementById('credModalTitle').textContent    = data.title;
-    document.getElementById('credModalSubtitle').textContent = data.subtitle;
-    document.getElementById('credModalImage').src            = data.image;
-    document.getElementById('credModalImage').alt            = data.title;
-    document.getElementById('credModalLink').href            = data.image;
+    if (!modal) {
+        console.warn('[credential] modal markup missing');
+        return;
+    }
 
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    function openModal(image, title, subtitle) {
+        modalImage.src = image;
+        modalImage.alt = title || '';
+        modalTitle.textContent = title || '';
+        modalSubtitle.textContent = subtitle || '';
+        modalLink.href = image;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.cert-card, .hackathon-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(
+                card.getAttribute('data-image'),
+                card.getAttribute('data-title'),
+                card.getAttribute('data-subtitle')
+            );
+        });
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.closest('[data-close-cred]')) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    console.log('[credential] ready ✅');
 }
-
-function closeCredential() {
-    const modal = document.getElementById('credentialModal');
-    if (modal) modal.classList.remove('active');
-    document.body.style.overflow = '';
-} 
 // ====================== //
 // INIT (single block)
 // ====================== //
@@ -469,17 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initCarousel();
     initProjectModal();
-
-    // Credential modal close handlers
-    const credModal = document.getElementById('credentialModal');
-    if (credModal) {
-        credModal.addEventListener('click', (e) => {
-            if (e.target.closest('[data-close-cred]')) closeCredential();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && credModal.classList.contains('active')) closeCredential();
-        });
-    }
+    initCredentialModal();   // ← this is the missing piece
 
     // Netlify forms
     document.querySelectorAll('form[netlify]').forEach(form => {
