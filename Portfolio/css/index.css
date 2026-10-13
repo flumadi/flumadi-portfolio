@@ -52,18 +52,6 @@
     border: 5px solid var(--white);
 }
 
-@media (max-width: 992px) {
-    .hero-image img {
-        max-width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image img {
-        max-width: 100%;
-    }
-}
-
 /* ====================== */
 /* ABOUT SECTION */
 /* ====================== */
@@ -519,6 +507,13 @@
 .hackathon-card {
     cursor: pointer;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover,
+.hackathon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(155, 89, 182, 0.18);
 }
 
 .cert-link {
@@ -636,6 +631,10 @@
         text-align: center;
     }
 
+    .hero-image img {
+        max-width: 80%;
+    }
+
     .about-content {
         flex-direction: column;
     }
@@ -718,6 +717,10 @@
 @media (max-width: 480px) {
     .hero-content h2 { font-size: 24px; }
     .hero-content h3 { font-size: 16px; }
+
+    .hero-image img {
+        max-width: 100%;
+    }
 
     .projects-track .project {
         flex: 0 0 200px;
