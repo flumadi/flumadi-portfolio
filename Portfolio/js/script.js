@@ -106,7 +106,7 @@ const PROJECT_DATA = {
     ticketing: {
         title: "Customer Service Ticketing System",
         tag: "Python • Flask • MySQL • Sage 300",
-        image: "images/project4.jpg",
+        image: "images/project4.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -135,7 +135,7 @@ const PROJECT_DATA = {
     youthhub: {
         title: "Youth Skill Hub",
         tag: "HTML • CSS • TypeScript",
-        image: "images/project5.jpg",
+        image: "images/project5.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
