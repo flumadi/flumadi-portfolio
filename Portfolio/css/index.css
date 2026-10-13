@@ -45,10 +45,23 @@
 }
 
 .hero-image img {
-    max-width: 100%;
+    max-width: 65%;
+    height: auto;
     border-radius: 16px;
     box-shadow: var(--shadow);
     border: 5px solid var(--white);
+}
+
+@media (max-width: 992px) {
+    .hero-image img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image img {
+        max-width: 100%;
+    }
 }
 
 /* ====================== */
