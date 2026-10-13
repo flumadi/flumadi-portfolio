@@ -178,7 +178,6 @@
     padding: 20px 0 0;
 }
 
-/* The track holds 2 copies of the project list and is translated by JS */
 .projects-track {
     display: flex;
     gap: 22px;
@@ -258,39 +257,6 @@
     align-self: flex-start;
     box-shadow: 0 3px 8px rgba(233, 30, 99, 0.25);
     pointer-events: none;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
-}
-
-.carousel-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid var(--purple);
-    background: var(--white);
-    color: var(--purple);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.15);
-}
-
-.carousel-btn:hover {
-    background: linear-gradient(135deg, var(--purple), var(--pink));
-    color: var(--white);
-    border-color: transparent;
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.35);
 }
 
 /* ====================== */
@@ -534,6 +500,116 @@
 }
 
 /* ====================== */
+/* CERT / HACKATHON CLICK AFFORDANCE */
+/* ====================== */
+.cert-card,
+.hackathon-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--pink);
+    transition: var(--transition);
+}
+
+.cert-card:hover .cert-link,
+.hackathon-card:hover .cert-link {
+    color: var(--purple);
+    transform: translateX(4px);
+}
+
+/* ====================== */
+/* CREDENTIAL MODAL */
+/* ====================== */
+.credential-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.credential-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.credential-content {
+    position: relative;
+    background: var(--white);
+    width: 100%;
+    max-width: 820px;
+    max-height: 90vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1;
+}
+
+.credential-modal.active .credential-content {
+    transform: scale(1) translateY(0);
+}
+
+.credential-header {
+    padding: 25px 30px 15px;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white;
+}
+
+.credential-header h2 {
+    color: white;
+    margin: 0 0 5px;
+    font-size: 20px;
+}
+
+.credential-header p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 13px;
+}
+
+.credential-image-wrap {
+    flex: 1;
+    overflow: auto;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.credential-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+.credential-actions {
+    padding: 20px 30px;
+    text-align: right;
+    border-top: 1px solid var(--light-gray);
+}
+
+/* ====================== */
 /* RESPONSIVE */
 /* ====================== */
 @media (max-width: 992px) {
@@ -585,11 +661,6 @@
 
     .projects-track .project img { height: 140px; }
 
-    .carousel-btn {
-        width: 42px;
-        height: 42px;
-    }
-
     .modal-content {
         max-height: 92vh;
         border-radius: 16px;
@@ -615,6 +686,19 @@
     .modal-link {
         padding: 10px 16px;
         font-size: 12.5px;
+    }
+
+    .credential-header {
+        padding: 20px 20px 12px;
+    }
+
+    .credential-header h2 { font-size: 17px; }
+
+    .credential-image-wrap { padding: 12px; }
+
+    .credential-actions {
+        padding: 15px 20px;
+        text-align: center;
     }
 }
 
