@@ -335,6 +335,56 @@ const CREDENTIAL_DATA = {
 };
 
 // ====================== //
+// CREDENTIAL MODAL — global function called by inline onclick
+// ====================== //
+function openCredential(key) {
+    const modal = document.getElementById('credentialModal');
+    if (!modal) {
+        console.error('[credential] modal markup missing');
+        return;
+    }
+
+    const data = CREDENTIAL_DATA[key];
+    if (!data) {
+        console.error('[credential] unknown key:', key);
+        return;
+    }
+
+    document.getElementById('credModalTitle').textContent = data.title;
+    document.getElementById('credModalSubtitle').textContent = data.subtitle;
+    const img = document.getElementById('credModalImage');
+    img.src = data.image;
+    img.alt = data.title;
+    document.getElementById('credModalLink').href = data.image;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCredential() {
+    const modal = document.getElementById('credentialModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Wire up close behaviour on load
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('credentialModal');
+    if (!modal) return;
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.closest('[data-close-cred]')) closeCredential();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeCredential();
+        }
+    });
+});
+
+// ====================== //
 // CAROUSEL — AUTO MARQUEE
 // ====================== //
 function initCarousel() {
@@ -473,74 +523,12 @@ function initProjectModal() {
 }
 
 // ====================== //
-// CREDENTIAL MODAL — whole card is the trigger
-// ====================== //
-function initCredentialModal() {
-    const modal = document.getElementById('credentialModal');
-    if (!modal) {
-        console.warn('[credential] modal markup missing from page');
-        return;
-    }
-
-    const modalTitle    = document.getElementById('credModalTitle');
-    const modalSubtitle = document.getElementById('credModalSubtitle');
-    const modalImage    = document.getElementById('credModalImage');
-    const modalLink     = document.getElementById('credModalLink');
-
-    function openModal(key) {
-        const data = CREDENTIAL_DATA[key];
-        if (!data) {
-            console.warn('[credential] no data for key:', key);
-            return;
-        }
-        modalTitle.textContent = data.title;
-        modalSubtitle.textContent = data.subtitle;
-        modalImage.src = data.image;
-        modalImage.alt = data.title;
-        modalLink.href = data.image;
-
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Event delegation — any click on a cert / hackathon card opens the modal
-    document.addEventListener('click', (e) => {
-        const card = e.target.closest('.cert-card, .hackathon-card');
-        if (card) {
-            const key = card.getAttribute('data-cert');
-            if (key) {
-                e.preventDefault();
-                openModal(key);
-                return;
-            }
-        }
-        if (e.target.closest('[data-close-cred]')) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-    });
-
-    // Expose for manual debugging in DevTools
-    window.openCredential = openModal;
-    console.log('[credential] ready ✅');
-}
-
-// ====================== //
 // INIT
 // ====================== //
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initCarousel();
     initProjectModal();
-    initCredentialModal();
 
     document.querySelectorAll('form[netlify]').forEach(form => {
         form.addEventListener('submit', (e) => {
