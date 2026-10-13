@@ -106,7 +106,7 @@ const PROJECT_DATA = {
     ticketing: {
         title: "Customer Service Ticketing System",
         tag: "Python • Flask • MySQL • Sage 300",
-        image: "images/project1.jpg",
+        image: "images/project4.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -135,7 +135,7 @@ const PROJECT_DATA = {
     youthhub: {
         title: "Youth Skill Hub",
         tag: "HTML • CSS • TypeScript",
-        image: "images/project2.jpg",
+        image: "images/project5.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -194,7 +194,7 @@ const PROJECT_DATA = {
     scheduler: {
         title: "AidAtlas Task Scheduler",
         tag: "PHP • MySQL • Web App",
-        image: "images/project4.jpg",
+        image: "images/project1.jpg",
         repo: "https://github.com/flumadi/AidAtlas_tasksheduler",
         demo: "",
         body: `
@@ -224,7 +224,7 @@ const PROJECT_DATA = {
     analytics: {
         title: "Predictive Analytics Dashboard",
         tag: "Python • ML • Power BI",
-        image: "images/project5.jpg",
+        image: "images/project6.png",
         repo: "https://github.com/flumadi",
         demo: "",
         body: `
@@ -254,7 +254,7 @@ const PROJECT_DATA = {
     homedesign: {
         title: "Home Designing Website",
         tag: "HTML • CSS • WordPress",
-        image: "images/project6.jpg",
+        image: "images/project2.jpg",
         repo: "https://github.com/flumadi/homedesigning",
         demo: "",
         body: `
