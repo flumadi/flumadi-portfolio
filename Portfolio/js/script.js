@@ -287,57 +287,6 @@ const PROJECT_DATA = {
 // CREDENTIAL DATA
 // ====================== //
 const CREDENTIAL_DATA = {
-    plp: {
-        title: "Power Learn Project Program",
-        subtitle: "Software Development – Mobile App Development • Feb 2025 – June 2025",
-        image: "images/plp-cert.png"
-    },
-    alx: {
-        title: "ALX AI Starter Kit Program",
-        subtitle: "Completed June 2025",
-        image: "images/alx-cert.png"
-    },
-    ieee: {
-        title: "IEEE Student & Computer Society Member",
-        subtitle: "IEEE Computer Society • Kenyan Section Region 8",
-        image: "images/ieee-badge.jpg"
-    },
-    dataanalytics: {
-        title: "Data Analytics Training",
-        subtitle: "ICT Authority Kenya × Data Breed Africa • March 2026",
-        image: "images/dataanalytics-cert.png"
-    },
-    ibm: {
-        title: "IBM SkillsBuild – Data Fundamentals",
-        subtitle: "Completed March 2026",
-        image: "images/ibm-cert.png"
-    },
-    plphack: {
-        title: "PLP Web Development Hackathons",
-        subtitle: "Power Learn Project",
-        image: "images/plp-hackathon.png"
-    },
-    sekuhack: {
-        title: "Seku Data Science Regional Hackathon",
-        subtitle: "Hack4dev",
-        image: "images/seku-hackathon.png"
-    },
-    designhack: {
-        title: "Design Thinking Hackathon",
-        subtitle: "Riarra University × Anza Village",
-        image: "images/design-hackathon.png"
-    },
-    athack: {
-        title: "Africa's Talking Open Hackathon",
-        subtitle: "Africa's Talking",
-        image: "images/at-hackathon.png"
-    }
-};
-
-// ====================== //
-// CREDENTIAL MODAL
-// ====================== //
-const CREDENTIAL_DATA = {
     plp:           { title: "Power Learn Project Program",     subtitle: "Software Development • Feb 2025 – June 2025",          image: "images/plp-cert.png" },
     alx:           { title: "ALX AI Starter Kit Program",      subtitle: "Completed June 2025",                                   image: "images/alx-cert.png" },
     ieee:          { title: "IEEE Student & Computer Society", subtitle: "IEEE Computer Society • Kenyan Section Region 8",       image: "images/ieee-badge.jpg" },
@@ -349,6 +298,9 @@ const CREDENTIAL_DATA = {
     athack:        { title: "Africa's Talking Open Hackathon", subtitle: "Africa's Talking",                                      image: "images/at-hackathon.png" }
 };
 
+// ====================== //
+// CREDENTIAL MODAL
+// ====================== //
 function openCredential(key) {
     console.log('[credential] opening:', key);
     const modal = document.getElementById('credentialModal');
@@ -371,22 +323,6 @@ function closeCredential() {
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-
-    const modal = document.getElementById('credentialModal');
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target.closest('[data-close-cred]')) closeCredential();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeCredential();
-        });
-    }
-
-    console.log('[script] loaded ✅');
-});
 
 // ====================== //
 // CAROUSEL — AUTO MARQUEE
@@ -527,17 +463,31 @@ function initProjectModal() {
 }
 
 // ====================== //
-// INIT
+// INIT (single block)
 // ====================== //
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initCarousel();
     initProjectModal();
 
+    // Credential modal close handlers
+    const credModal = document.getElementById('credentialModal');
+    if (credModal) {
+        credModal.addEventListener('click', (e) => {
+            if (e.target.closest('[data-close-cred]')) closeCredential();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && credModal.classList.contains('active')) closeCredential();
+        });
+    }
+
+    // Netlify forms
     document.querySelectorAll('form[netlify]').forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             handleNetlifyForm(form);
         });
     });
+
+    console.log('[script] loaded ✅');
 });
