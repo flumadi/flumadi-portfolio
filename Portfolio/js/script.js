@@ -425,7 +425,7 @@ function initProjectModal() {
 // ====================== //
 // CREDENTIAL DATA
 // ====================== //
-const CREDENTIAL_DATA = {
+// const CREDENTIAL_DATA = {
     plp:           { title: "Power Learn Project Program",     subtitle: "Software Development • Feb 2025 – June 2025",          image: "images/plp-cert.png" },
     alx:           { title: "ALX AI Starter Kit Program",      subtitle: "Completed June 2025",                                   image: "images/alx-cert.png" },
     ieee:          { title: "IEEE Student & Computer Society", subtitle: "IEEE Computer Society • Kenyan Section Region 8",       image: "images/ieee-badge.jpg" },
