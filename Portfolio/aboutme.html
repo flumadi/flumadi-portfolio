@@ -10,9 +10,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>Fridah<span>Lumadi</span></h1>
-            </div>
+            <div class="logo"><h1>Fridah<span>Lumadi</span></h1></div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -27,86 +25,100 @@
     <section class="about-hero">
         <div class="container">
             <div class="hero-content">
-                <h2>Get to Know Me</h2>
-                <p>An IT scholar passionate about intelligent systems, data-driven solutions, and software that makes an impact.<br>This is my journey.</p>
+                <h2>Hi, I'm Fridah 👋</h2>
+                <p>An IT scholar passionate about intelligent systems, data-driven solutions, and software that makes an impact. Here's my story.</p>
             </div>
         </div>
     </section>
 
-    <section class="about-me">
+    <section class="story-intro">
+        <div class="container">
+            <div class="story-card">
+                <div class="story-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="story-text">
+                    I'm a final-year <strong>Bachelor of Information Technology</strong> student at South Eastern Kenya University,
+                    with a growing passion for <strong>Data Science</strong>, <strong>Artificial Intelligence</strong>, and
+                    <strong>Software Development</strong>. My journey is driven by curiosity — the kind that turns ideas
+                    into working prototypes and data into decisions.
+                </p>
+                <p class="story-text">
+                    From building an ERP-integrated ticketing system to exploring Flutter for mobile apps, I love
+                    working at the intersection of logic and creativity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey">
         <div class="container">
             <h2 class="section-title">My Journey</h2>
-            <div class="about-grid">
-                <!-- Education -->
-                <div class="education">
-                    <div class="section-header">
-                        <i class="fas fa-graduation-cap"></i>
+
+            <div class="journey-columns">
+                <div class="journey-col">
+                    <div class="col-header">
+                        <span class="col-icon"><i class="fas fa-graduation-cap"></i></span>
                         <h3>Education</h3>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-item current">
-                            <div class="timeline-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>South Eastern Kenya University</h4>
-                                <p class="timeline-date">Sept 2023 – Present</p>
-                                <p>Bachelor of Information Technology</p>
-                                <p>Key coursework: Software Development, Web Technologies, Data Science, Machine Learning, AI, Cybersecurity, Financial Markets, Business Administration, Leadership & Communication, Risk Management</p>
-                            </div>
+
+                    <div class="journey-card">
+                        <div class="card-dot current"></div>
+                        <div class="card-body">
+                            <span class="card-badge">Current</span>
+                            <h4>South Eastern Kenya University</h4>
+                            <p class="card-date">Sept 2023 – Present</p>
+                            <p class="card-desc">Bachelor of Information Technology</p>
+                            <p class="card-note">Coursework: Software Development, Web Technologies, Data Science, ML, AI, Cybersecurity, Business Administration, Risk Management</p>
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>St. Joseph's Girls' High School – Kitale</h4>
-                                <p class="timeline-date">Jan 2019 – Dec 2022</p>
-                                <p>Kenya Certificate of Secondary Education (KCSE) – Grade B</p>
-                                <p>Excelled in Mathematics, English, Kiswahili, Computer Studies, and Science-based courses.</p>
-                            </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="card-dot"></div>
+                        <div class="card-body">
+                            <h4>St. Joseph's Girls' High School – Kitale</h4>
+                            <p class="card-date">Jan 2019 – Dec 2022</p>
+                            <p class="card-desc">KCSE – Grade B</p>
+                            <p class="card-note">Excelled in Mathematics, English, Kiswahili, Computer Studies & Sciences</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Work Experience -->
-                <div class="experience">
-                    <div class="section-header">
-                        <i class="fas fa-briefcase"></i>
+                <div class="journey-col">
+                    <div class="col-header">
+                        <span class="col-icon"><i class="fas fa-briefcase"></i></span>
                         <h3>Work Experience</h3>
                     </div>
 
-                    <div class="experience-item">
-                        <div class="exp-header">
+                    <div class="journey-card">
+                        <div class="card-dot current"></div>
+                        <div class="card-body">
                             <h4>ACCFIN E.A LTD</h4>
-                            <p class="date">June 2026 – August 2026</p>
+                            <p class="card-date">June 2026 – Aug 2026</p>
+                            <p class="card-desc"><strong>ERP Implementation & Software Dev Intern</strong></p>
+                            <p class="card-note">
+                                Implemented Sage 300 ERP (financial & inventory modules, MS SQL, security).
+                                Built a Customer Service Ticketing System with Python (Flask) + MySQL
+                                integrated with Sage 300. Gained exposure to BI Reporting, Sage CRM, HRMS/Payroll, Crystal Reports.
+                            </p>
                         </div>
-                        <p class="position">ERP Implementation & Software Development Intern</p>
-                        <ul class="exp-details">
-                            <li><strong>Sage 300 ERP Implementation (MS SQL & Core Modules):</strong> Implemented Sage 300 ERP, configuring core financial and inventory modules, MS SQL database setup, company profiles, fiscal calendars, multi-currency, user security, and handled workstation/server prep, firewall configuration, and troubleshooting of system, registry, and connectivity issues.</li>
-                            <li><strong>Software Development (Python/Flask & MySQL):</strong> Built and deployed a functional Customer Service Ticketing System with Python (Flask) and MySQL, integrated with Sage 300 ERP, featuring ticket management, live comments, and a reporting dashboard to address the client support tracking gap.</li>
-                            <li>Gained hands-on exposure to major modules including BI Reporting, Sage CRM, HRMS/Payroll, and Crystal Reports.</li>
-                        </ul>
                     </div>
 
-                    <div class="experience-item">
-                        <div class="exp-header">
+                    <div class="journey-card">
+                        <div class="card-dot"></div>
+                        <div class="card-body">
                             <h4>Robisearch Limited</h4>
-                            <p class="date">June 2024 – August 2024</p>
+                            <p class="card-date">June 2024 – Aug 2024</p>
+                            <p class="card-desc"><strong>Web & Graphics Designer Intern</strong></p>
+                            <p class="card-note">
+                                Designed UI/UX-focused WordPress websites and presented prototypes to clients.
+                                Created branding assets with Canva & Adobe Express.
+                            </p>
                         </div>
-                        <p class="position">Web and Graphics Designer Intern</p>
-                        <ul class="exp-details">
-                            <li><strong>Web Design (WordPress & Front-End Development):</strong> Designed intuitive, visually appealing websites applying UI/UX principles for accessibility and seamless navigation and presented website prototypes for client demos.</li>
-                            <li>Created graphics (Posters, Flyers) and branding elements using Canva and Adobe Express.</li>
-                        </ul>
-                        <p class="exp-note">Planning to continue internship during long holidays</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements -->
     <section class="achievements">
         <div class="container">
             <h2 class="section-title">Achievements</h2>
@@ -115,21 +127,17 @@
                 <li>Gained foundational knowledge in digital marketing strategies to enhance web visibility and engagement.</li>
                 <li>Gained in-depth knowledge of software systems (POS, ERP, CRM & HRMS) operations and real-world applications.</li>
                 <li>Built a Customer Service Ticketing System with Python (Flask) and MySQL, integrated with Sage 300 ERP.</li>
-                <li>Gained end-to-end financial ERP implementation experience and delivered a functional internal tool usable for client support operations.</li>
+                <li>Gained end-to-end financial ERP implementation experience and delivered a functional internal tool.</li>
             </ul>
         </div>
     </section>
 
-    <!-- Skills -->
     <section class="skills-showcase">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Programming Languages</h3>
-                    </div>
+                    <div class="skill-header"><i class="fas fa-code"></i><h3>Languages</h3></div>
                     <ul>
                         <li><span class="skill-name">Python</span> <span class="skill-level">Intermediate</span></li>
                         <li><span class="skill-name">Java</span> <span class="skill-level">Intermediate</span></li>
@@ -142,10 +150,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>Frameworks & Tools</h3>
-                    </div>
+                    <div class="skill-header"><i class="fas fa-tools"></i><h3>Frameworks & Tools</h3></div>
                     <ul>
                         <li><span class="skill-name">Flutter</span> <span class="skill-level">Intermediate</span></li>
                         <li><span class="skill-name">React</span> <span class="skill-level">Basic</span></li>
@@ -158,10 +163,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Other Competencies</h3>
-                    </div>
+                    <div class="skill-header"><i class="fas fa-laptop-code"></i><h3>Competencies</h3></div>
                     <ul>
                         <li><span class="skill-name">Machine Learning Fundamentals</span></li>
                         <li><span class="skill-name">Data Analytics</span></li>
@@ -176,7 +178,6 @@
         </div>
     </section>
 
-    <!-- Certifications -->
     <section class="certifications">
         <div class="container">
             <h2 class="section-title">Certifications & Involvements</h2>
@@ -184,42 +185,57 @@
                 <div class="cert-card">
                     <h4>Power Learn Project Program</h4>
                     <p class="cert-date">Feb 2025 – June 2025</p>
-                    <p>Enrolled in Software Development, specializing in Mobile App Development using Dart/Flutter. Participated in 3 hackathons and multiple masterclasses.</p>
+                    <p>Software Development – Mobile App Development using Dart/Flutter. Participated in 3 hackathons and multiple masterclasses.</p>
                 </div>
                 <div class="cert-card">
                     <h4>ALX AI Starter Kit Program</h4>
                     <p class="cert-date">Completed June 2025</p>
-                    <p>Completed a 4-week beginner AI program covering tools such as NotebookLM, Lindy.AI, ChatGPT, Groq, and more.</p>
+                    <p>4-week beginner AI program covering NotebookLM, Lindy.AI, ChatGPT, Groq, and more.</p>
                 </div>
                 <div class="cert-card">
-                    <h4>IEEE Student & Computer Society Member</h4>
-                    <p>Active member of IEEE Computer Society, Kenyan Section Region 8. Attended an Industrial Visit to Konza Technopolis and volunteered as a Graphics Designer under the SB Publicity team for IEEE EPS Summer School on PCB Tech (July 2026).</p>
+                    <h4>IEEE Student & Computer Society</h4>
+                    <p>Active member of IEEE Computer Society, Kenyan Section Region 8. Attended Konza Technopolis visit and volunteered as Graphics Designer for IEEE EPS Summer School (July 2026).</p>
                 </div>
                 <div class="cert-card">
                     <h4>Data Analytics Training</h4>
                     <p class="cert-date">March 2026</p>
-                    <p>Completed a 3-day training by ICT Authority Kenya in collaboration with Data Breed Africa, covering Data Analytics, Python, Power BI, and Data Science fundamentals.</p>
+                    <p>3-day training by ICT Authority Kenya with Data Breed Africa – Data Analytics, Python, Power BI, Data Science fundamentals.</p>
                 </div>
                 <div class="cert-card">
                     <h4>IBM SkillsBuild – Data Fundamentals</h4>
                     <p class="cert-date">Completed March 2026</p>
-                    <p>Completed a self-paced Data Fundamentals course by IBM SkillsBuild.</p>
+                    <p>Self-paced Data Fundamentals course by IBM SkillsBuild.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Hackathons -->
     <section class="hackathons">
         <div class="container">
             <h2 class="section-title">Hackathons</h2>
-            <p class="section-subtitle">Participated in multiple hackathons including:</p>
-            <ul class="hackathons-list">
-                <li>PLP Web Development Hackathons</li>
-                <li>Seku Data Science Regional Hackathon by Hack4dev</li>
-                <li>Design Thinking Hackathon at Riarra University by Anza Village</li>
-                <li>Africa's Talking Open Hackathon by AT</li>
-            </ul>
+            <p class="section-subtitle">A few of the tech events I've competed in ✨</p>
+            <div class="hackathons-grid">
+                <div class="hackathon-card">
+                    <div class="hackathon-icon"><i class="fas fa-code-branch"></i></div>
+                    <h4>PLP Web Development Hackathons</h4>
+                    <p>Power Learn Project</p>
+                </div>
+                <div class="hackathon-card">
+                    <div class="hackathon-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Seku Data Science Regional Hackathon</h4>
+                    <p>Hack4dev</p>
+                </div>
+                <div class="hackathon-card">
+                    <div class="hackathon-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Design Thinking Hackathon</h4>
+                    <p>Riarra University × Anza Village</p>
+                </div>
+                <div class="hackathon-card">
+                    <div class="hackathon-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <h4>Africa's Talking Open Hackathon</h4>
+                    <p>Africa's Talking</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -259,10 +275,7 @@
                     <input type="hidden" name="form-name" value="newsletter">
                     <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
                     <input type="email" id="newsletterEmail" name="email" placeholder="Your Email" required aria-label="Your email address">
-                    <button type="submit" class="btn">
-                        <span class="btn-text">Subscribe</span>
-                        <i class="fas fa-spinner loading-spinner"></i>
-                    </button>
+                    <button type="submit" class="btn"><span class="btn-text">Subscribe</span><i class="fas fa-spinner loading-spinner"></i></button>
                     <div class="form-response-message"></div>
                 </form>
             </div>
