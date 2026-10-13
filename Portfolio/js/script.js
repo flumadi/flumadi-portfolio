@@ -297,7 +297,7 @@ function initCarousel() {
     const halfCount = cards.length / 2;
 
     let offset = 0;
-    const SPEED = 0.7;
+    const SPEED = 0.25;
     let paused = false;
     let modalOpen = false;
     let dragging = false;
